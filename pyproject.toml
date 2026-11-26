@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools==80.9.0", "wheel==0.45.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "velochem"
+version = "1.0.0"
+description = "CPU inference for the VeloChem 100-endpoint molecular model"
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+  "numpy==1.26.4",
+  "Pillow==12.2.0",
+  "flatbuffers==25.12.19",
+  "packaging==26.2",
+  "protobuf==7.35.1",
+  "onnxruntime==1.27.0",
+  "rdkit==2026.3.6",
+]
+
+[project.scripts]
+velochem = "velochem.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+velochem = ["catalog.json", "presentation_catalog.json", "assets/*.onnx"]

@@ -1,0 +1,6 @@
+record_id,smiles,description
+ethanol,CCO,ordinary valid SMILES
+lactic_acid_stereo,"C[C@H](O)C(=O)O",stereochemical example
+ethanol_duplicate,CCO,duplicate input preserved
+blank,,blank input
+invalid,not_a_smiles,invalid input

@@ -1,0 +1,18 @@
+{
+  "distribution": "velochem",
+  "version": "1.0.0",
+  "selected_model": "B100 seed-11 epoch 20",
+  "checkpoint_sha256": "806c7d220dac89040530e1bf99e4c05e0dedcd903636b05e164b959bcf2c6311",
+  "trusted_input_cpu_archive_sha256": "102ea820eb9e79cba8ada339aec483cef028860f6242199e155c8850a979a168",
+  "onnx_sha256": "ceeb2ee754181139aac545408fdaecfaeb7b1818833d3b28c9ab719109026f0f",
+  "catalog_sha256": "a2cee4590de73485c24dcbb88bcf53fb37b764bdd0a0cade10cd91071e58cecc",
+  "endpoint_order_sha256": "9ef03e69933d41d33b58b5871c2937e7b7014de46b1fcebdae225d6be1d15b85",
+  "output_counts": {
+    "classification": 68,
+    "regression": 32
+  },
+  "public_redistribution": "not cleared",
+  "presentation_catalog_sha256": "ea120edacff6f4c7e2779a88790ea15526f5d8cda3b2ac9523ec752498c8ee7f",
+  "presentation_catalog_schema": "velochem-presentation-catalog/1",
+  "class_display_cutoff": 0.5
+}

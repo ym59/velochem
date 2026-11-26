@@ -1,0 +1,2313 @@
+{
+  "schema": "velochem-presentation-catalog/1",
+  "model": "VeloChem B100 seed-11 epoch-20 FP32 CPU",
+  "class_cutoff": 0.5,
+  "default_sort": "category",
+  "category_order": [
+    "Absorption",
+    "Distribution",
+    "Metabolism",
+    "Excretion and elimination",
+    "Physicochemical",
+    "Transport",
+    "Environmental",
+    "Dose and pharmacokinetics",
+    "Toxicity and bioactivity"
+  ],
+  "endpoint_count": 100,
+  "classification_count": 68,
+  "regression_count": 32,
+  "frozen_output_order_sha256": "9ef03e69fc0cd17273a38813db4d11f82b1c435f0b8d42bdfd27c421d15b85",
+  "table_s1_sha256": "dc4f5356d87c0abcb9a6f34fb81dd7bfd0bb7c27e1124acf871d8e0e54212cc9",
+  "categories": {
+    "Absorption": 8,
+    "Distribution": 7,
+    "Metabolism": 17,
+    "Excretion and elimination": 2,
+    "Physicochemical": 7,
+    "Transport": 7,
+    "Environmental": 2,
+    "Dose and pharmacokinetics": 1,
+    "Toxicity and bioactivity": 49
+  },
+  "endpoints": {
+    "tdc:ames": {
+      "endpoint_id": "tdc:ames",
+      "output_index": 0,
+      "display_name": "Ames mutagenicity",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "binary class (0/1; underlying assay threshold not re-derived); transform=official TDC table unit: binary class (0/1; underlying assay threshold not re-derived); source values used as stored; no EDA re-transform; official metric=AUROC; classification thresholds not re-derived.",
+      "assay_definition": "Ames mutagenicity endpoint; exact assay protocol/threshold not expanded in local metadata; species=unknown; system=unknown.",
+      "benchmark_metric": "AUROC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": false,
+      "class_labels": [
+        "Class 0",
+        "Class 1"
+      ],
+      "class_0_semantics": "not specified in saved roster metadata",
+      "class_1_semantics": "not specified in saved roster metadata"
+    },
+    "tdc:cyp2c9_veith": {
+      "endpoint_id": "tdc:cyp2c9_veith",
+      "output_index": 1,
+      "display_name": "CYP2C9 inhibition",
+      "category": "Metabolism",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "binary class (0/1; underlying assay threshold not re-derived); transform=official TDC table unit: binary class (0/1; underlying assay threshold not re-derived); source values used as stored; no EDA re-transform; official metric=AUPRC; classification thresholds not re-derived.",
+      "assay_definition": "CYP2C9 inhibition endpoint (Veith); exact assay protocol/threshold not expanded in local metadata; species=unknown; system=unknown.",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": false,
+      "class_labels": [
+        "Class 0",
+        "Class 1"
+      ],
+      "class_0_semantics": "not specified in saved roster metadata",
+      "class_1_semantics": "not specified in saved roster metadata"
+    },
+    "tdc:lipophilicity_astrazeneca": {
+      "endpoint_id": "tdc:lipophilicity_astrazeneca",
+      "output_index": 2,
+      "display_name": "Lipophilicity",
+      "category": "Physicochemical",
+      "task_type": "regression",
+      "unit_or_scale": "log-ratio",
+      "native_unit_or_label_rule": "log-ratio; transform=official TDC table unit: log-ratio; source values used as stored; no EDA re-transform; official metric=MAE; classification thresholds not re-derived.",
+      "source_label_rule_verbatim": "log-ratio; transform=official TDC table unit: log-ratio; source values used as stored; no EDA re-transform; official metric=MAE; classification thresholds not re-derived.",
+      "assay_definition": "Lipophilicity endpoint (AstraZeneca); exact assay protocol/threshold not expanded in local metadata; species=unknown; system=unknown.",
+      "benchmark_metric": "MAE",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "standardized_head_to_admitted_source_scale",
+        "mean": 2.2698045313194135,
+        "scale": 1.117117592989946
+      },
+      "class_meaning_documented": false,
+      "class_labels": null
+    },
+    "tdc:clearance_hepatocyte_az": {
+      "endpoint_id": "tdc:clearance_hepatocyte_az",
+      "output_index": 3,
+      "display_name": "Hepatocyte intrinsic clearance",
+      "category": "Metabolism",
+      "task_type": "regression",
+      "unit_or_scale": "µL/min per 10⁶ cells",
+      "native_unit_or_label_rule": "uL.min-1.(10^6 cells)-1; transform=official TDC table unit: uL.min-1.(10^6 cells)-1; source values used as stored; no EDA re-transform; official metric=Spearman; classification thresholds not re-derived.",
+      "source_label_rule_verbatim": "uL.min-1.(10^6 cells)-1; transform=official TDC table unit: uL.min-1.(10^6 cells)-1; source values used as stored; no EDA re-transform; official metric=Spearman; classification thresholds not re-derived.",
+      "assay_definition": "Hepatocyte clearance endpoint (AstraZeneca); exact assay protocol/threshold not expanded in local metadata; species=unknown; system=unknown.",
+      "benchmark_metric": "Spearman",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "standardized_head_to_admitted_source_scale",
+        "mean": 43.757393258426966,
+        "scale": 49.65679631853659
+      },
+      "class_meaning_documented": false,
+      "class_labels": null,
+      "physical_range": {
+        "minimum": 0,
+        "maximum": null,
+        "basis": "Intrinsic clearance is a nonnegative rate."
+      }
+    },
+    "tdc:cyp2d6_veith": {
+      "endpoint_id": "tdc:cyp2d6_veith",
+      "output_index": 4,
+      "display_name": "CYP2D6 inhibition",
+      "category": "Metabolism",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "binary class (0/1; underlying assay threshold not re-derived); transform=official TDC table unit: binary class (0/1; underlying assay threshold not re-derived); source values used as stored; no EDA re-transform; official metric=AUPRC; classification thresholds not re-derived.",
+      "assay_definition": "CYP2D6 inhibition endpoint (Veith); exact assay protocol/threshold not expanded in local metadata; species=unknown; system=unknown.",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": false,
+      "class_labels": [
+        "Class 0",
+        "Class 1"
+      ],
+      "class_0_semantics": "not specified in saved roster metadata",
+      "class_1_semantics": "not specified in saved roster metadata"
+    },
+    "tdc:cyp3a4_veith": {
+      "endpoint_id": "tdc:cyp3a4_veith",
+      "output_index": 5,
+      "display_name": "CYP3A4 inhibition",
+      "category": "Metabolism",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "binary class (0/1; underlying assay threshold not re-derived); transform=official TDC table unit: binary class (0/1; underlying assay threshold not re-derived); source values used as stored; no EDA re-transform; official metric=AUPRC; classification thresholds not re-derived.",
+      "assay_definition": "CYP3A4 inhibition endpoint (Veith); exact assay protocol/threshold not expanded in local metadata; species=unknown; system=unknown.",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": false,
+      "class_labels": [
+        "Class 0",
+        "Class 1"
+      ],
+      "class_0_semantics": "not specified in saved roster metadata",
+      "class_1_semantics": "not specified in saved roster metadata"
+    },
+    "tdc:bbb_martins": {
+      "endpoint_id": "tdc:bbb_martins",
+      "output_index": 6,
+      "display_name": "Blood–brain barrier penetration",
+      "category": "Distribution",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "binary class (0/1; underlying assay threshold not re-derived); transform=official TDC table unit: binary class (0/1; underlying assay threshold not re-derived); source values used as stored; no EDA re-transform; official metric=AUROC; classification thresholds not re-derived.",
+      "assay_definition": "Blood-brain barrier penetration endpoint (Martins); exact assay protocol/threshold not expanded in local metadata; species=unknown; system=unknown.",
+      "benchmark_metric": "AUROC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": false,
+      "class_labels": [
+        "Class 0",
+        "Class 1"
+      ],
+      "class_0_semantics": "not specified in saved roster metadata",
+      "class_1_semantics": "not specified in saved roster metadata"
+    },
+    "tdc:pgp_broccatelli": {
+      "endpoint_id": "tdc:pgp_broccatelli",
+      "output_index": 7,
+      "display_name": "P-glycoprotein inhibition",
+      "category": "Transport",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "binary class (0/1; underlying assay threshold not re-derived); transform=official TDC table unit: binary class (0/1; underlying assay threshold not re-derived); source values used as stored; no EDA re-transform; official metric=AUROC; classification thresholds not re-derived.",
+      "assay_definition": "P-glycoprotein endpoint (Broccatelli); exact assay protocol/threshold not expanded in local metadata; species=unknown; system=unknown.",
+      "benchmark_metric": "AUROC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": false,
+      "class_labels": [
+        "Class 0",
+        "Class 1"
+      ],
+      "class_0_semantics": "not specified in saved roster metadata",
+      "class_1_semantics": "not specified in saved roster metadata"
+    },
+    "tdc:clearance_microsome_az": {
+      "endpoint_id": "tdc:clearance_microsome_az",
+      "output_index": 8,
+      "display_name": "Microsomal intrinsic clearance",
+      "category": "Metabolism",
+      "task_type": "regression",
+      "unit_or_scale": "mL/min/g",
+      "native_unit_or_label_rule": "mL.min-1.g-1; transform=official TDC table unit: mL.min-1.g-1; source values used as stored; no EDA re-transform; official metric=Spearman; classification thresholds not re-derived.",
+      "source_label_rule_verbatim": "mL.min-1.g-1; transform=official TDC table unit: mL.min-1.g-1; source values used as stored; no EDA re-transform; official metric=Spearman; classification thresholds not re-derived.",
+      "assay_definition": "Microsomal clearance endpoint (AstraZeneca); exact assay protocol/threshold not expanded in local metadata; species=unknown; system=unknown.",
+      "benchmark_metric": "Spearman",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "standardized_head_to_admitted_source_scale",
+        "mean": 36.916674473067914,
+        "scale": 46.39313692070931
+      },
+      "class_meaning_documented": false,
+      "class_labels": null,
+      "physical_range": {
+        "minimum": 0,
+        "maximum": null,
+        "basis": "Intrinsic clearance is a nonnegative rate."
+      }
+    },
+    "tdc:caco2_wang": {
+      "endpoint_id": "tdc:caco2_wang",
+      "output_index": 9,
+      "display_name": "Caco-2 permeability",
+      "category": "Absorption",
+      "task_type": "regression",
+      "unit_or_scale": "log(Papp [cm/s])",
+      "native_unit_or_label_rule": "cm/s; transform=official TDC table unit: cm/s; source values used as stored; no EDA re-transform; official metric=MAE; classification thresholds not re-derived.",
+      "source_label_rule_verbatim": "cm/s; transform=official TDC table unit: cm/s; source values used as stored; no EDA re-transform; official metric=MAE; classification thresholds not re-derived.",
+      "assay_definition": "Caco-2 permeability endpoint (Wang); exact assay protocol/threshold not expanded in local metadata; species=unknown; system=unknown.",
+      "benchmark_metric": "MAE",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "standardized_head_to_admitted_source_scale",
+        "mean": -5.284798873275863,
+        "scale": 0.8162028735013255
+      },
+      "class_meaning_documented": false,
+      "class_labels": null,
+      "scale_note": "The saved regression head returns the source target scale. Table S1 and the TDC summary call it cm/s, while the linked ADMET benchmark paper names the dataset property log(Papp); display the log scale without exponentiating.",
+      "table_s1_correction": "Replace the TDC Caco-2 unit cm/s with log(Papp) [cm/s]."
+    },
+    "tdc:hia_hou": {
+      "endpoint_id": "tdc:hia_hou",
+      "output_index": 10,
+      "display_name": "Human intestinal absorption",
+      "category": "Absorption",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "binary class (0/1; underlying assay threshold not re-derived); transform=official TDC table unit: binary class (0/1; underlying assay threshold not re-derived); source values used as stored; no EDA re-transform; official metric=AUROC; classification thresholds not re-derived.",
+      "assay_definition": "Human intestinal absorption endpoint (Hou); exact assay protocol/threshold not expanded in local metadata; species=unknown; system=unknown.",
+      "benchmark_metric": "AUROC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": false,
+      "class_labels": [
+        "Class 0",
+        "Class 1"
+      ],
+      "class_0_semantics": "not specified in saved roster metadata",
+      "class_1_semantics": "not specified in saved roster metadata"
+    },
+    "tdc:bioavailability_ma": {
+      "endpoint_id": "tdc:bioavailability_ma",
+      "output_index": 11,
+      "display_name": "Oral bioavailability (TDC)",
+      "category": "Absorption",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "binary class (0/1; underlying assay threshold not re-derived); transform=official TDC table unit: binary class (0/1; underlying assay threshold not re-derived); source values used as stored; no EDA re-transform; official metric=AUROC; classification thresholds not re-derived.",
+      "assay_definition": "Bioavailability endpoint (MA); exact assay protocol/threshold not expanded in local metadata; species=unknown; system=unknown.",
+      "benchmark_metric": "AUROC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": false,
+      "class_labels": [
+        "Class 0",
+        "Class 1"
+      ],
+      "class_0_semantics": "not specified in saved roster metadata",
+      "class_1_semantics": "not specified in saved roster metadata"
+    },
+    "tdc:ppbr_az": {
+      "endpoint_id": "tdc:ppbr_az",
+      "output_index": 12,
+      "display_name": "Plasma protein binding",
+      "category": "Distribution",
+      "task_type": "regression",
+      "unit_or_scale": "%",
+      "native_unit_or_label_rule": "%; transform=official TDC table unit: %; source values used as stored; no EDA re-transform; official metric=MAE; classification thresholds not re-derived.",
+      "source_label_rule_verbatim": "%; transform=official TDC table unit: %; source values used as stored; no EDA re-transform; official metric=MAE; classification thresholds not re-derived.",
+      "assay_definition": "Plasma protein binding endpoint (AstraZeneca); exact assay protocol/threshold not expanded in local metadata; species=unknown; system=unknown.",
+      "benchmark_metric": "MAE",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "standardized_head_to_admitted_source_scale",
+        "mean": 88.513828125,
+        "scale": 15.625087615809038
+      },
+      "class_meaning_documented": false,
+      "class_labels": null,
+      "physical_range": {
+        "minimum": 0,
+        "maximum": 100,
+        "basis": "Percentage bound is between 0 and 100."
+      }
+    },
+    "tdc:vdss_lombardo": {
+      "endpoint_id": "tdc:vdss_lombardo",
+      "output_index": 13,
+      "display_name": "Volume of distribution (TDC)",
+      "category": "Distribution",
+      "task_type": "regression",
+      "unit_or_scale": "L/kg",
+      "native_unit_or_label_rule": "L/kg; transform=official TDC table unit: L/kg; source values used as stored; no EDA re-transform; official metric=Spearman; classification thresholds not re-derived.",
+      "source_label_rule_verbatim": "L/kg; transform=official TDC table unit: L/kg; source values used as stored; no EDA re-transform; official metric=Spearman; classification thresholds not re-derived.",
+      "assay_definition": "Volume of distribution at steady state endpoint (Lombardo); exact assay protocol/threshold not expanded in local metadata; species=unknown; system=unknown.",
+      "benchmark_metric": "Spearman",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "standardized_head_to_admitted_source_scale",
+        "mean": 5.501908931698774,
+        "scale": 30.74064428231591
+      },
+      "class_meaning_documented": false,
+      "class_labels": null,
+      "physical_range": {
+        "minimum": 0,
+        "maximum": null,
+        "basis": "Volume is nonnegative."
+      }
+    },
+    "tdc:half_life_obach": {
+      "endpoint_id": "tdc:half_life_obach",
+      "output_index": 14,
+      "display_name": "Elimination half-life",
+      "category": "Excretion and elimination",
+      "task_type": "regression",
+      "unit_or_scale": "h",
+      "native_unit_or_label_rule": "hr; transform=official TDC table unit: hr; source values used as stored; no EDA re-transform; official metric=Spearman; classification thresholds not re-derived.",
+      "source_label_rule_verbatim": "hr; transform=official TDC table unit: hr; source values used as stored; no EDA re-transform; official metric=Spearman; classification thresholds not re-derived.",
+      "assay_definition": "Half-life endpoint (Obach); exact assay protocol/threshold not expanded in local metadata; species=unknown; system=unknown.",
+      "benchmark_metric": "Spearman",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "standardized_head_to_admitted_source_scale",
+        "mean": 22.284076923076924,
+        "scale": 85.42619453803671
+      },
+      "class_meaning_documented": false,
+      "class_labels": null,
+      "physical_range": {
+        "minimum": 0,
+        "maximum": null,
+        "basis": "Elapsed half-life is nonnegative."
+      }
+    },
+    "tdc:cyp2c9_substrate_carbonmangels": {
+      "endpoint_id": "tdc:cyp2c9_substrate_carbonmangels",
+      "output_index": 15,
+      "display_name": "CYP2C9 substrate",
+      "category": "Metabolism",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "binary class (0/1; underlying assay threshold not re-derived); transform=official TDC table unit: binary class (0/1; underlying assay threshold not re-derived); source values used as stored; no EDA re-transform; official metric=AUPRC; classification thresholds not re-derived.",
+      "assay_definition": "CYP2C9 substrate endpoint (Carbon-Mangels); exact assay protocol/threshold not expanded in local metadata; species=unknown; system=unknown.",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": false,
+      "class_labels": [
+        "Class 0",
+        "Class 1"
+      ],
+      "class_0_semantics": "not specified in saved roster metadata",
+      "class_1_semantics": "not specified in saved roster metadata"
+    },
+    "tdc:cyp2d6_substrate_carbonmangels": {
+      "endpoint_id": "tdc:cyp2d6_substrate_carbonmangels",
+      "output_index": 16,
+      "display_name": "CYP2D6 substrate",
+      "category": "Metabolism",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "binary class (0/1; underlying assay threshold not re-derived); transform=official TDC table unit: binary class (0/1; underlying assay threshold not re-derived); source values used as stored; no EDA re-transform; official metric=AUPRC; classification thresholds not re-derived.",
+      "assay_definition": "CYP2D6 substrate endpoint (Carbon-Mangels); exact assay protocol/threshold not expanded in local metadata; species=unknown; system=unknown.",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": false,
+      "class_labels": [
+        "Class 0",
+        "Class 1"
+      ],
+      "class_0_semantics": "not specified in saved roster metadata",
+      "class_1_semantics": "not specified in saved roster metadata"
+    },
+    "tdc:cyp3a4_substrate_carbonmangels": {
+      "endpoint_id": "tdc:cyp3a4_substrate_carbonmangels",
+      "output_index": 17,
+      "display_name": "CYP3A4 substrate",
+      "category": "Metabolism",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "binary class (0/1; underlying assay threshold not re-derived); transform=official TDC table unit: binary class (0/1; underlying assay threshold not re-derived); source values used as stored; no EDA re-transform; official metric=AUROC; classification thresholds not re-derived.",
+      "assay_definition": "CYP3A4 substrate endpoint (Carbon-Mangels); exact assay protocol/threshold not expanded in local metadata; species=unknown; system=unknown.",
+      "benchmark_metric": "AUROC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": false,
+      "class_labels": [
+        "Class 0",
+        "Class 1"
+      ],
+      "class_0_semantics": "not specified in saved roster metadata",
+      "class_1_semantics": "not specified in saved roster metadata"
+    },
+    "tdc:ld50_zhu": {
+      "endpoint_id": "tdc:ld50_zhu",
+      "output_index": 18,
+      "display_name": "Rat acute oral toxicity (LD50)",
+      "category": "Toxicity and bioactivity",
+      "task_type": "regression",
+      "unit_or_scale": "log(1/(mol/kg))",
+      "native_unit_or_label_rule": "log(1/(mol/kg)); transform=official TDC table unit: log(1/(mol/kg)); source values used as stored; no EDA re-transform; official metric=MAE; classification thresholds not re-derived.",
+      "source_label_rule_verbatim": "log(1/(mol/kg)); transform=official TDC table unit: log(1/(mol/kg)); source values used as stored; no EDA re-transform; official metric=MAE; classification thresholds not re-derived.",
+      "assay_definition": "LD50 toxicity endpoint (Zhu); exact assay protocol/threshold not expanded in local metadata; species=unknown; system=unknown.",
+      "benchmark_metric": "MAE",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "standardized_head_to_admitted_source_scale",
+        "mean": 2.4721871674491394,
+        "scale": 0.9683828447377775
+      },
+      "class_meaning_documented": false,
+      "class_labels": null
+    },
+    "tdc:herg": {
+      "endpoint_id": "tdc:herg",
+      "output_index": 19,
+      "display_name": "hERG blockade",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "binary class (0/1; underlying assay threshold not re-derived); transform=official TDC table unit: binary class (0/1; underlying assay threshold not re-derived); source values used as stored; no EDA re-transform; official metric=AUROC; classification thresholds not re-derived.",
+      "assay_definition": "hERG activity endpoint; exact assay protocol/threshold not expanded in local metadata; species=unknown; system=unknown.",
+      "benchmark_metric": "AUROC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": false,
+      "class_labels": [
+        "Class 0",
+        "Class 1"
+      ],
+      "class_0_semantics": "not specified in saved roster metadata",
+      "class_1_semantics": "not specified in saved roster metadata"
+    },
+    "tdc:dili": {
+      "endpoint_id": "tdc:dili",
+      "output_index": 20,
+      "display_name": "Drug-induced liver injury",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "binary class (0/1; underlying assay threshold not re-derived); transform=official TDC table unit: binary class (0/1; underlying assay threshold not re-derived); source values used as stored; no EDA re-transform; official metric=AUROC; classification thresholds not re-derived.",
+      "assay_definition": "Drug-induced liver injury endpoint; exact assay protocol/threshold not expanded in local metadata; species=unknown; system=unknown.",
+      "benchmark_metric": "AUROC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": false,
+      "class_labels": [
+        "Class 0",
+        "Class 1"
+      ],
+      "class_0_semantics": "not specified in saved roster metadata",
+      "class_1_semantics": "not specified in saved roster metadata"
+    },
+    "cav1_2_blockade": {
+      "endpoint_id": "cav1_2_blockade",
+      "output_index": 21,
+      "display_name": "L-type calcium channel blockade (CaV1.2)",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "pIC50 (dimensionless); blocker if pIC50 >= 5, nonblocker if pIC50 < 5",
+      "assay_definition": "Cav1.2 voltage-gated calcium channel blockade; blocker if author pIC50 >= 5, nonblocker if pIC50 < 5",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/roster_expansion/final_three/final_three_roster_reconciled.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Nonblocker (0)",
+        "Blocker (1)"
+      ],
+      "class_0_semantics": "nonblocker (pIC50 < 5)",
+      "class_1_semantics": "blocker (pIC50 >= 5)"
+    },
+    "deeppk:bcrp": {
+      "endpoint_id": "deeppk:bcrp",
+      "output_index": 22,
+      "display_name": "BCRP inhibition",
+      "category": "Transport",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "Author catalogue identifies Breast cancer resistance protein inhibitor as Metabolism / Classification; theory section=Breast cancer resistance protein inhibitor (BCRP); theory excerpt=Description: The breast cancer resistance protein (BCRP) is a member of the ATP-binding cassette (ABC) transporter superfamily, which plays an important role in exporting xenobiotics out of cells. Interpretation: The predictor will determine if a given compound is likely to be a BCRP inhibitor or not. Assay Type: Unknown.; Supplementary Table S1 row=non_docx_response_no_retry. No label values were inspected.",
+      "assay_definition": "Deep-PK author theory: Breast cancer resistance protein inhibitor (BCRP); Description: The breast cancer resistance protein (BCRP) is a member of the ATP-binding cassette (ABC) transporter superfamily, which plays an important role in exporting xenobiotics out of cells. Interpretation: The predictor will determine if a given compound is likely to be a BCRP inhibitor or not. Assay Type: Unknown.",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": false,
+      "class_labels": [
+        "Class 0",
+        "Class 1"
+      ],
+      "class_0_semantics": "not specified in saved roster metadata",
+      "class_1_semantics": "not specified in saved roster metadata"
+    },
+    "deeppk:bioconcF": {
+      "endpoint_id": "deeppk:bioconcF",
+      "output_index": 23,
+      "display_name": "Bioconcentration factor",
+      "category": "Environmental",
+      "task_type": "regression",
+      "unit_or_scale": "log₁₀(L/kg)",
+      "native_unit_or_label_rule": "author scale log10(L/kg); preserve the released label; no transform",
+      "source_label_rule_verbatim": "author scale log10(L/kg); preserve the released label; no transform",
+      "assay_definition": "Deep-PK author theory: Bioconcentration Factor; Description: In this endpoint, the molecules are assessed in terms of the ratio of their chemical concentration in biota considering the absorption through the respiratory surface in water at the steady state. The built model on this endpoint data will help in understanding secondary poisoning potential. Its unit is log10(L/kg). Assay Type: In vivo.",
+      "benchmark_metric": "MAE",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "standardized_head_to_admitted_source_scale",
+        "mean": 1.8890918767,
+        "scale": 1.5292692290885073
+      },
+      "class_meaning_documented": false,
+      "class_labels": null
+    },
+    "deeppk:bp": {
+      "endpoint_id": "deeppk:bp",
+      "output_index": 24,
+      "display_name": "Boiling point",
+      "category": "Physicochemical",
+      "task_type": "regression",
+      "unit_or_scale": "°C",
+      "native_unit_or_label_rule": "author scale degrees Celsius; preserve the released label; no transform",
+      "source_label_rule_verbatim": "author scale degrees Celsius; preserve the released label; no transform",
+      "assay_definition": "Deep-PK author theory: Boiling point; Description: The temperature (℃) at which a liquid becomes a gas by heating. Interpretation: The unit of boiling point of a molecule is ℃. Assay Type: In vitro.",
+      "benchmark_metric": "MAE",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "standardized_head_to_admitted_source_scale",
+        "mean": 175.1359035330793,
+        "scale": 87.2061089920978
+      },
+      "class_meaning_documented": false,
+      "class_labels": null
+    },
+    "deeppk:caco2_reg": {
+      "endpoint_id": "deeppk:caco2_reg",
+      "output_index": 25,
+      "display_name": "Caco-2 permeability (Deep-PK)",
+      "category": "Absorption",
+      "task_type": "regression",
+      "unit_or_scale": "log Papp (cm/s)",
+      "native_unit_or_label_rule": "author log Papp scale (log cm/s); preserve the released label; no transform",
+      "source_label_rule_verbatim": "author log Papp scale (log cm/s); preserve the released label; no transform",
+      "assay_definition": "Deep-PK author theory: Human colorectal adenocarcinoma cells (Caco-2); Description: The Caco-2 cell line is composed of human epithelial colorectal adenocarcinoma cells. The Caco-2 monolayer of cells is widely used as an in vitro model of the human intestinal mucosa to predict the absorption of orally administered drugs. Interpretation: The unit of Caco-2 permeability is the logarithm of the apparent permeability coefficient (log Papp; log cm/s). A compound is considered to have a high Caco-2 permeability if it has a Papp > 8 x 10-6 cm/s. For the predictive model, high Caco-2 permeability would translate into predicted values > 0.90. Assay Type: In vitro.",
+      "benchmark_metric": "MAE",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "standardized_head_to_admitted_source_scale",
+        "mean": -5.157759901731343,
+        "scale": 0.6316555269877584
+      },
+      "class_meaning_documented": false,
+      "class_labels": null
+    },
+    "deeppk:cl": {
+      "endpoint_id": "deeppk:cl",
+      "output_index": 26,
+      "display_name": "Total clearance (Deep-PK)",
+      "category": "Excretion and elimination",
+      "task_type": "regression",
+      "unit_or_scale": "mL/min/kg",
+      "native_unit_or_label_rule": "author total plasma/serum clearance, ml/min/kg body weight; no transform",
+      "source_label_rule_verbatim": "author total plasma/serum clearance, ml/min/kg body weight; no transform",
+      "assay_definition": "Deep-PK author theory: Clearance; Description: Drug clearance (from plasma/serum) is measured by the proportionality constant (CLtot), and occurs primarily as a combination of hepatic clearance (metabolism in the liver and biliary clearance) and renal clearance (excretion via the kidneys). It is the major pharmacokinetic parameter that describes how long a drug will remain in the blood. It is related to the systemically available dose, and is important for determining dosing rates to achieve steady-state concentrations. Interpretation: The predicted total clearance (CLtot) of a given compound is given in ml/min/kg body weight. Assay Type: In vivo.",
+      "benchmark_metric": "MAE",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "standardized_head_to_admitted_source_scale",
+        "mean": 4.756501182033097,
+        "scale": 5.000217399942618
+      },
+      "class_meaning_documented": false,
+      "class_labels": null,
+      "physical_range": {
+        "minimum": 0,
+        "maximum": null,
+        "basis": "Total clearance is a nonnegative rate."
+      }
+    },
+    "deeppk:cyp1a2_inhibitor": {
+      "endpoint_id": "deeppk:cyp1a2_inhibitor",
+      "output_index": 27,
+      "display_name": "CYP1A2 inhibition",
+      "category": "Metabolism",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "Class 1: CYP inhibitor with IC50 <10 uM; Class 0: non-inhibitor",
+      "assay_definition": "Deep-PK author theory: Cytochrome P450 inhibitors; Description: Cytochrome P450’s are important class of detoxification enzymes in the body, mainly found in the liver. They are responsible for catabolising xenobiotics to facilitate their excretion via the urine. While most drugs are inactivated by the cytochrome P450’s, in some cases, P450’s are employed to activate ‘prodrugs’. Inhibitors of this enzyme, such as grapefruit juice, can affect drug metabolism and are therefore contraindicated for some drugs who’s pharmacokinetics are critically driven by P450 activity. It is therefore important to assess a compound’s ability to inhibit cytochrome P450’s. Models for major P450 isoforms (CYP1A2/CYP2C19/CYP2C9/CYP2D6/CYP3A4) were built based on co",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Non-inhibitor (0)",
+        "Inhibitor (1)"
+      ],
+      "class_0_semantics": "non-inhibitor",
+      "class_1_semantics": "CYP inhibitor with IC50 <10 uM"
+    },
+    "deeppk:cyp1a2_substrate": {
+      "endpoint_id": "deeppk:cyp1a2_substrate",
+      "output_index": 28,
+      "display_name": "CYP1A2 substrate",
+      "category": "Metabolism",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "Class 1: likely metabolized substrate; Class 0: not a substrate",
+      "assay_definition": "Deep-PK author theory: Cytochrome P450 substrates; Description: TCytochrome P450 substrates represent drugs who’s pharmacokinetics are largely driven by their metabolism by P450’s. The main isoforms responsible for drug metabolism are 2D6, 2C9 and 3A4. Interpretation: The predictor will assess whether a given molecule is likely to be metabolised by one of these P450’s (Class1) or not (Class 0). Assay Type: In vitro.",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Non-substrate (0)",
+        "Substrate (1)"
+      ],
+      "class_0_semantics": "not a substrate",
+      "class_1_semantics": "likely metabolized substrate"
+    },
+    "deeppk:cyp2c19_inhibitor": {
+      "endpoint_id": "deeppk:cyp2c19_inhibitor",
+      "output_index": 29,
+      "display_name": "CYP2C19 inhibition",
+      "category": "Metabolism",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "Class 1: CYP inhibitor with IC50 <10 uM; Class 0: non-inhibitor",
+      "assay_definition": "Deep-PK author theory: Cytochrome P450 inhibitors; Description: Cytochrome P450’s are important class of detoxification enzymes in the body, mainly found in the liver. They are responsible for catabolising xenobiotics to facilitate their excretion via the urine. While most drugs are inactivated by the cytochrome P450’s, in some cases, P450’s are employed to activate ‘prodrugs’. Inhibitors of this enzyme, such as grapefruit juice, can affect drug metabolism and are therefore contraindicated for some drugs who’s pharmacokinetics are critically driven by P450 activity. It is therefore important to assess a compound’s ability to inhibit cytochrome P450’s. Models for major P450 isoforms (CYP1A2/CYP2C19/CYP2C9/CYP2D6/CYP3A4) were built based on co",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Non-inhibitor (0)",
+        "Inhibitor (1)"
+      ],
+      "class_0_semantics": "non-inhibitor",
+      "class_1_semantics": "CYP inhibitor with IC50 <10 uM"
+    },
+    "deeppk:cyp2c19_substrate": {
+      "endpoint_id": "deeppk:cyp2c19_substrate",
+      "output_index": 30,
+      "display_name": "CYP2C19 substrate",
+      "category": "Metabolism",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "Class 1: likely metabolized substrate; Class 0: not a substrate",
+      "assay_definition": "Deep-PK author theory: Cytochrome P450 substrates; Description: TCytochrome P450 substrates represent drugs who’s pharmacokinetics are largely driven by their metabolism by P450’s. The main isoforms responsible for drug metabolism are 2D6, 2C9 and 3A4. Interpretation: The predictor will assess whether a given molecule is likely to be metabolised by one of these P450’s (Class1) or not (Class 0). Assay Type: In vitro.",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Non-substrate (0)",
+        "Substrate (1)"
+      ],
+      "class_0_semantics": "not a substrate",
+      "class_1_semantics": "likely metabolized substrate"
+    },
+    "deeppk:cyp2c9_inhibitor": {
+      "endpoint_id": "deeppk:cyp2c9_inhibitor",
+      "output_index": 31,
+      "display_name": "CYP2C9 inhibition (Deep-PK)",
+      "category": "Metabolism",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "Class 1: CYP inhibitor with IC50 <10 uM; Class 0: non-inhibitor",
+      "assay_definition": "Deep-PK author theory: Cytochrome P450 inhibitors; Description: Cytochrome P450’s are important class of detoxification enzymes in the body, mainly found in the liver. They are responsible for catabolising xenobiotics to facilitate their excretion via the urine. While most drugs are inactivated by the cytochrome P450’s, in some cases, P450’s are employed to activate ‘prodrugs’. Inhibitors of this enzyme, such as grapefruit juice, can affect drug metabolism and are therefore contraindicated for some drugs who’s pharmacokinetics are critically driven by P450 activity. It is therefore important to assess a compound’s ability to inhibit cytochrome P450’s. Models for major P450 isoforms (CYP1A2/CYP2C19/CYP2C9/CYP2D6/CYP3A4) were built based on co",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Non-inhibitor (0)",
+        "Inhibitor (1)"
+      ],
+      "class_0_semantics": "non-inhibitor",
+      "class_1_semantics": "CYP inhibitor with IC50 <10 uM"
+    },
+    "deeppk:cyp2d6_inhibitor": {
+      "endpoint_id": "deeppk:cyp2d6_inhibitor",
+      "output_index": 32,
+      "display_name": "CYP2D6 inhibition (Deep-PK)",
+      "category": "Metabolism",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "Class 1: CYP inhibitor with IC50 <10 uM; Class 0: non-inhibitor",
+      "assay_definition": "Deep-PK author theory: Cytochrome P450 inhibitors; Description: Cytochrome P450’s are important class of detoxification enzymes in the body, mainly found in the liver. They are responsible for catabolising xenobiotics to facilitate their excretion via the urine. While most drugs are inactivated by the cytochrome P450’s, in some cases, P450’s are employed to activate ‘prodrugs’. Inhibitors of this enzyme, such as grapefruit juice, can affect drug metabolism and are therefore contraindicated for some drugs who’s pharmacokinetics are critically driven by P450 activity. It is therefore important to assess a compound’s ability to inhibit cytochrome P450’s. Models for major P450 isoforms (CYP1A2/CYP2C19/CYP2C9/CYP2D6/CYP3A4) were built based on co",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Non-inhibitor (0)",
+        "Inhibitor (1)"
+      ],
+      "class_0_semantics": "non-inhibitor",
+      "class_1_semantics": "CYP inhibitor with IC50 <10 uM"
+    },
+    "deeppk:cyp3a4_inhibitor": {
+      "endpoint_id": "deeppk:cyp3a4_inhibitor",
+      "output_index": 33,
+      "display_name": "CYP3A4 inhibition (Deep-PK)",
+      "category": "Metabolism",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "Class 1: CYP inhibitor with IC50 <10 uM; Class 0: non-inhibitor",
+      "assay_definition": "Deep-PK author theory: Cytochrome P450 inhibitors; Description: Cytochrome P450’s are important class of detoxification enzymes in the body, mainly found in the liver. They are responsible for catabolising xenobiotics to facilitate their excretion via the urine. While most drugs are inactivated by the cytochrome P450’s, in some cases, P450’s are employed to activate ‘prodrugs’. Inhibitors of this enzyme, such as grapefruit juice, can affect drug metabolism and are therefore contraindicated for some drugs who’s pharmacokinetics are critically driven by P450 activity. It is therefore important to assess a compound’s ability to inhibit cytochrome P450’s. Models for major P450 isoforms (CYP1A2/CYP2C19/CYP2C9/CYP2D6/CYP3A4) were built based on co",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Non-inhibitor (0)",
+        "Inhibitor (1)"
+      ],
+      "class_0_semantics": "non-inhibitor",
+      "class_1_semantics": "CYP inhibitor with IC50 <10 uM"
+    },
+    "deeppk:fdamdd_reg": {
+      "endpoint_id": "deeppk:fdamdd_reg",
+      "output_index": 34,
+      "display_name": "Maximum recommended dose",
+      "category": "Dose and pharmacokinetics",
+      "task_type": "regression",
+      "unit_or_scale": "log(mg/kg/day)",
+      "native_unit_or_label_rule": "author log MRTD scale, log(mg/kg/day); 0.477 is a described threshold, not recoding",
+      "source_label_rule_verbatim": "author log MRTD scale, log(mg/kg/day); 0.477 is a described threshold, not recoding",
+      "assay_definition": "Deep-PK author theory: Maximum Tolerated Dose; Description: This endpoint is associated with the definition of the Maximum Recommended Tolerated Dose (MRTD) of chemical compounds in humans. Data comprehends human clinical trials, where the value of the logarithm of MRTD [log(mg/kg/day)] is employed to define the toxicity. Interpretation: In these terms, a MRTD of less than or equal to 0.477 [log(mg/kg/day)] is considered to be low (or non-toxic), whereas a value greater than 0.477 [log(mg/kg/day)] is considered to be high (or toxic). Assay Type: In vivo.",
+      "benchmark_metric": "MAE",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "standardized_head_to_admitted_source_scale",
+        "mean": 0.38276797850776895,
+        "scale": 1.242970938749692
+      },
+      "class_meaning_documented": false,
+      "class_labels": null
+    },
+    "deeppk:lc50dm": {
+      "endpoint_id": "deeppk:lc50dm",
+      "output_index": 35,
+      "display_name": "Daphnia toxicity (LC50)",
+      "category": "Environmental",
+      "task_type": "regression",
+      "unit_or_scale": "−log₁₀[(mg/L)/(1000 × MW)]",
+      "native_unit_or_label_rule": "author scale -log10[(mg/L)/(1000*MW)]; preserve the released label",
+      "source_label_rule_verbatim": "author scale -log10[(mg/L)/(1000*MW)]; preserve the released label",
+      "assay_definition": "Deep-PK author theory: Daphnia Magna; Description: In this endpoint, compounds are tested by applying them to water and verifying if that results in the death of 50% of Daphnia Magna after 48 hours, i.e., the lethal concentration at 50% in mg/L. The used unit characterising LC 50% is −log10[(mg/L)/(1000*MW)]. Assay Type: In vivo.",
+      "benchmark_metric": "MAE",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "standardized_head_to_admitted_source_scale",
+        "mean": 4.593621863613446,
+        "scale": 1.964346756361176
+      },
+      "class_meaning_documented": false,
+      "class_labels": null
+    },
+    "deeppk:mdck": {
+      "endpoint_id": "deeppk:mdck",
+      "output_index": 36,
+      "display_name": "MDCK permeability (Deep-PK)",
+      "category": "Transport",
+      "task_type": "regression",
+      "unit_or_scale": "Recorded scale",
+      "native_unit_or_label_rule": "author Papp scale nm/s; catalogue task type is Regression; class thresholds are descriptive only",
+      "source_label_rule_verbatim": "author Papp scale nm/s; catalogue task type is Regression; class thresholds are descriptive only",
+      "assay_definition": "Deep-PK author theory: Madin-Darby Canine Kidney cells (MDCK); Description: MDCK cell based model was developed to measure the human intestine membrane permeability of chemicals. Interpretation: The unit of observed and predicted MDCK permeability coefficient (Papp) is nm/s. The permeability is classified into three classes: Low permeability < 4 nm/s, medium 4-70 nm/s, high > 70 nm/s. (adapted from Yazadanian et al (1998)) Assay Type: In vitro.",
+      "benchmark_metric": "MAE",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "standardized_head_to_admitted_source_scale",
+        "mean": -4.764571432552405,
+        "scale": 0.5617486399757228
+      },
+      "class_meaning_documented": false,
+      "class_labels": null,
+      "scale_note": "The official Deep-PK theory describes MDCK Papp in nm/s, but the saved fitted-target metadata does not bind a log transform while its source-scale center is negative. Do not infer a conversion; display the recorded scale."
+    },
+    "deeppk:mp": {
+      "endpoint_id": "deeppk:mp",
+      "output_index": 37,
+      "display_name": "Melting point",
+      "category": "Physicochemical",
+      "task_type": "regression",
+      "unit_or_scale": "°C",
+      "native_unit_or_label_rule": "author scale degrees Celsius; preserve the released label; no transform",
+      "source_label_rule_verbatim": "author scale degrees Celsius; preserve the released label; no transform",
+      "assay_definition": "Deep-PK author theory: Melting point (MP); Description: The temperature (℃) at which a solid becomes a liquid by heating. Interpretation: The unit of melting point of a molecule is ℃. Assay Type: In vitro.",
+      "benchmark_metric": "MAE",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "standardized_head_to_admitted_source_scale",
+        "mean": 74.61867824648469,
+        "scale": 106.79015401441266
+      },
+      "class_meaning_documented": false,
+      "class_labels": null
+    },
+    "deeppk:oct2": {
+      "endpoint_id": "deeppk:oct2",
+      "output_index": 38,
+      "display_name": "OCT2 inhibition",
+      "category": "Transport",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "Class 1: likely OCT2 inhibitor; Class 0: not an inhibitor",
+      "assay_definition": "Deep-PK author theory: Renal organic cation transporter-2 (OCT2); Description: Renal organic cation transporter 2 (OCT2) is a key transporter located on the basolateral membrane of the renal proximal tubule. The transporter plays an important role in the active secretion of cationic drugs into urine. Interpretation: The predictor will determine if a given compound is likely to be an OCT2 inhibitor (Class1) or not (Class0). Assay Type: In vivo.",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Non-inhibitor (0)",
+        "Inhibitor (1)"
+      ],
+      "class_0_semantics": "not an inhibitor",
+      "class_1_semantics": "likely OCT2 inhibitor"
+    },
+    "deeppk:pka": {
+      "endpoint_id": "deeppk:pka",
+      "output_index": 39,
+      "display_name": "Acidic pKa",
+      "category": "Physicochemical",
+      "task_type": "regression",
+      "unit_or_scale": "pKa",
+      "native_unit_or_label_rule": "author -log Ka / pKa acid scale; preserve the released label; no transform",
+      "source_label_rule_verbatim": "author -log Ka / pKa acid scale; preserve the released label; no transform",
+      "assay_definition": "Deep-PK author theory: pKa acid; Description: The negative logarithm of the acid dissociation constant (Ka) represents the ratio of conjugate acid to conjugate base of a molecule that can control its pharmacokinetic properties. Interpretation: -log Ka Assay Type: In vitro.",
+      "benchmark_metric": "MAE",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "standardized_head_to_admitted_source_scale",
+        "mean": 6.507673482032217,
+        "scale": 3.364822062570052
+      },
+      "class_meaning_documented": false,
+      "class_labels": null
+    },
+    "deeppk:skin_permeability": {
+      "endpoint_id": "deeppk:skin_permeability",
+      "output_index": 40,
+      "display_name": "Skin permeability",
+      "category": "Absorption",
+      "task_type": "regression",
+      "unit_or_scale": "log Kp (cm/h)",
+      "native_unit_or_label_rule": "author logKp scale, cm/h; preserve the released label; no transform",
+      "source_label_rule_verbatim": "author logKp scale, cm/h; preserve the released label; no transform",
+      "assay_definition": "Deep-PK author theory: Human skin permeability; Description: Skin permeability is a significant consideration for the efficacy and systemic (blood) exposure of many consumer products applied topically to the skin, and is of interest for the development of transdermal drug delivery. Interpretation: It predicts if a given compound is likely to be skin permeable, expressed as the skin permeability constant logKp (cm/h). A compound is considered to have a relatively low skin permeability if it has a logKp > -2.5. Assay Type: In vitro.",
+      "benchmark_metric": "MAE",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "standardized_head_to_admitted_source_scale",
+        "mean": -2.8779999999999997,
+        "scale": 1.0397370546715852
+      },
+      "class_meaning_documented": false,
+      "class_labels": null
+    },
+    "deeppk:vd": {
+      "endpoint_id": "deeppk:vd",
+      "output_index": 41,
+      "display_name": "Volume of distribution (Deep-PK)",
+      "category": "Distribution",
+      "task_type": "regression",
+      "unit_or_scale": "log(L/kg)",
+      "native_unit_or_label_rule": "author log VDss scale, log L/kg; preserve the released label; no transform",
+      "source_label_rule_verbatim": "author log VDss scale, log L/kg; preserve the released label; no transform",
+      "assay_definition": "Deep-PK author theory: Steady State Volume of Distribution (VDSS); Description: The steady state volume of distribution (VDss) is the theoretical volume that the total dose of a drug would need to be uniformly distributed to give the same concentration as in blood plasma. The higher the VD is, the more of a drug is distributed in tissue rather than plasma. It can be affected by renal failure and dehydration. The predicted logarithm of VDss of a given compound is given as the log L/kg. Interpretation: VDss is considered low if below 0.71 L/kg (log VDss < -0.15) and high if above 2.81 L/kg (log VDss > 0.45). Assay Type: In vivo.",
+      "benchmark_metric": "MAE",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "standardized_head_to_admitted_source_scale",
+        "mean": 1.1591900195758156,
+        "scale": 1.597709987419371
+      },
+      "class_meaning_documented": false,
+      "class_labels": null
+    },
+    "dio1_inhibition": {
+      "endpoint_id": "dio1_inhibition",
+      "output_index": 42,
+      "display_name": "DIO1 inhibition",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "not present in selected local roster metadata",
+      "assay_definition": "dio1_inhibition",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": null,
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Below 50% inhibition (0)",
+        "At least 50% inhibition (1)"
+      ],
+      "class_0_semantics": "below 50% inhibition",
+      "class_1_semantics": "at least 50% inhibition"
+    },
+    "dio2_inhibition": {
+      "endpoint_id": "dio2_inhibition",
+      "output_index": 43,
+      "display_name": "DIO2 inhibition",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "not present in selected local roster metadata",
+      "assay_definition": "dio2_inhibition",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": null,
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Below 50% inhibition (0)",
+        "At least 50% inhibition (1)"
+      ],
+      "class_0_semantics": "below 50% inhibition",
+      "class_1_semantics": "at least 50% inhibition"
+    },
+    "dio3_inhibition": {
+      "endpoint_id": "dio3_inhibition",
+      "output_index": 44,
+      "display_name": "DIO3 inhibition",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "not present in selected local roster metadata",
+      "assay_definition": "dio3_inhibition",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": null,
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Below 50% inhibition (0)",
+        "At least 50% inhibition (1)"
+      ],
+      "class_0_semantics": "below 50% inhibition",
+      "class_1_semantics": "at least 50% inhibition"
+    },
+    "experimental_logp": {
+      "endpoint_id": "experimental_logp",
+      "output_index": 45,
+      "display_name": "Experimental logP",
+      "category": "Physicochemical",
+      "task_type": "regression",
+      "unit_or_scale": "logP",
+      "native_unit_or_label_rule": "source Lipophilicity units (logP for class P)",
+      "source_label_rule_verbatim": "source Lipophilicity units (logP for class P)",
+      "assay_definition": "Measured logP: original measured Lipophilicity values for ionisation-based class P; values retained without adjustment or transformation.",
+      "benchmark_metric": "MAE",
+      "source_metadata_file": "clean/roster_expansion/final_three/final_three_roster_reconciled.csv",
+      "output_transform": {
+        "kind": "standardized_head_to_admitted_source_scale",
+        "mean": 2.5947878332707472,
+        "scale": 1.8651067133998478
+      },
+      "class_meaning_documented": false,
+      "class_labels": null
+    },
+    "experimental_water_solubility": {
+      "endpoint_id": "experimental_water_solubility",
+      "output_index": 46,
+      "display_name": "Experimental aqueous solubility",
+      "category": "Physicochemical",
+      "task_type": "regression",
+      "unit_or_scale": "log₁₀(nM)",
+      "native_unit_or_label_rule": "log10(nM), retained without transformation",
+      "source_label_rule_verbatim": "log10(nM), retained without transformation",
+      "assay_definition": "Experimental aqueous water solubility; source curation filters dynamic water-solubility measurements.",
+      "benchmark_metric": "MAE",
+      "source_metadata_file": "clean/roster_expansion/final_three/final_three_roster_reconciled.csv",
+      "output_transform": {
+        "kind": "standardized_head_to_admitted_source_scale",
+        "mean": 5.300037485682676,
+        "scale": 2.0277559405729146
+      },
+      "class_meaning_documented": false,
+      "class_labels": null
+    },
+    "freesolv:hydration_free_energy": {
+      "endpoint_id": "freesolv:hydration_free_energy",
+      "output_index": 47,
+      "display_name": "Hydration free energy",
+      "category": "Toxicity and bioactivity",
+      "task_type": "regression",
+      "unit_or_scale": "kcal/mol",
+      "native_unit_or_label_rule": "kcal/mol; source field: experimental value (expt)",
+      "source_label_rule_verbatim": "not present in selected local roster metadata",
+      "assay_definition": "freesolv:hydration_free_energy",
+      "benchmark_metric": "MAE",
+      "source_metadata_file": null,
+      "output_transform": {
+        "kind": "standardized_head_to_admitted_source_scale",
+        "mean": -3.1805089820359282,
+        "scale": 3.8723248882729977
+      },
+      "class_meaning_documented": false,
+      "class_labels": null
+    },
+    "mdr1_mdck_efflux_ratio": {
+      "endpoint_id": "mdr1_mdck_efflux_ratio",
+      "output_index": 48,
+      "display_name": "MDR1–MDCK efflux ratio",
+      "category": "Transport",
+      "task_type": "regression",
+      "unit_or_scale": "log(B−A/A−B)",
+      "native_unit_or_label_rule": "Author activity values; no transform or unit conversion applied.",
+      "source_label_rule_verbatim": "Author activity values; no transform or unit conversion applied.",
+      "assay_definition": "MDR1-MDCK efflux ratio; preserve author activity values and units.",
+      "benchmark_metric": "MAE",
+      "source_metadata_file": "clean/roster_expansion/roster_reconciled.csv",
+      "output_transform": {
+        "kind": "standardized_head_to_admitted_source_scale",
+        "mean": 0.39586738197424887,
+        "scale": 0.6807254139931103
+      },
+      "class_meaning_documented": false,
+      "class_labels": null,
+      "scale_note": "The linked benchmark paper identifies the measured endpoint as log(B−A/A−B); the fitted output is kept on the stored log target scale."
+    },
+    "nav1_5_blockade": {
+      "endpoint_id": "nav1_5_blockade",
+      "output_index": 49,
+      "display_name": "Cardiac sodium channel blockade (NaV1.5)",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "pIC50 (dimensionless); blocker if pIC50 >= 5, nonblocker if pIC50 < 5",
+      "assay_definition": "Nav1.5 voltage-gated sodium channel blockade; blocker if author pIC50 >= 5, nonblocker if pIC50 < 5",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/roster_expansion/final_three/final_three_roster_reconciled.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Nonblocker (0)",
+        "Blocker (1)"
+      ],
+      "class_0_semantics": "nonblocker (pIC50 < 5)",
+      "class_1_semantics": "blocker (pIC50 >= 5)"
+    },
+    "nice_chts:1134": {
+      "endpoint_id": "nice_chts:1134",
+      "output_index": 50,
+      "display_name": "DT40 luciferase response",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "NICE curated Active/Inactive; Flag-Omit, QC-Omit, missing, and unexpected masked",
+      "assay_definition": "Data from the assay component TOX21_DT40_LUC was analyzed into 1 assay endpoint. This assay endpoint, TOX21_DT40_LUC, was analyzed in the positive analysis fitting direction relative to DMSO as the negative control and baseline of activity. Using a type of viability reporter, loss-of-signal activity can be used to understand changes in the viability. Furthermore, this assay endpoint can be referred to as a primary readout, because the performed assay has only produced 1 assay endpoint.",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Inactive (0)",
+        "Active (1)"
+      ],
+      "class_0_semantics": "inactive/negative",
+      "class_1_semantics": "active/positive"
+    },
+    "nice_chts:3189": {
+      "endpoint_id": "nice_chts:3189",
+      "output_index": 51,
+      "display_name": "Acetylcholinesterase inhibition",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "NICE curated Active/Inactive; Flag-Omit, QC-Omit, missing, and unexpected masked",
+      "assay_definition": "Data from the assay component TOX21_AChE_ms_Antagonist was analyzed into 1 assay endpoint. This assay endpoint, TOX21_AChE_ms_Antagonist, was analyzed in the positive analysis fitting direction relative to DMSO as the negative control and baseline of activity. Using a type of inducible reporter, loss-of-signal activity can be used to understand changes in enzymatic activity. To generalize the intended target to other relatable targets, this assay endpoint is annotated to the esterase intended target family, where the subfamily is acetylcholinesterase.",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Inactive (0)",
+        "Active (1)"
+      ],
+      "class_0_semantics": "inactive/negative",
+      "class_1_semantics": "active/positive"
+    },
+    "openadmet:caco2_efflux": {
+      "endpoint_id": "openadmet:caco2_efflux",
+      "output_index": 52,
+      "display_name": "Caco-2 efflux ratio",
+      "category": "Absorption",
+      "task_type": "regression",
+      "unit_or_scale": "Dimensionless",
+      "native_unit_or_label_rule": "dimensionless; official challenge overall metric=MA-RAE; scorer uses log10(1+max(y,0)) for non-LogD targets and leaves LogD unchanged; do not apply this scorer transform twice.",
+      "source_label_rule_verbatim": "dimensionless; official challenge overall metric=MA-RAE; scorer uses log10(1+max(y,0)) for non-LogD targets and leaves LogD unchanged; do not apply this scorer transform twice.",
+      "assay_definition": "Caco-2 Efflux Ratio: Ratio of apparent permeability in both directions; dimensionless.",
+      "benchmark_metric": "MAE",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "standardized_head_to_admitted_source_scale",
+        "mean": 4.284687861271676,
+        "scale": 9.72169323489671
+      },
+      "class_meaning_documented": false,
+      "class_labels": null,
+      "physical_range": {
+        "minimum": 0,
+        "maximum": null,
+        "basis": "An efflux ratio is nonnegative."
+      }
+    },
+    "openadmet:caco2_papp_a_b": {
+      "endpoint_id": "openadmet:caco2_papp_a_b",
+      "output_index": 53,
+      "display_name": "Caco-2 apical-to-basolateral permeability",
+      "category": "Absorption",
+      "task_type": "regression",
+      "unit_or_scale": "10⁻⁶ cm/s",
+      "native_unit_or_label_rule": "10^-6 cm/s; official challenge overall metric=MA-RAE; scorer uses log10(1+max(y,0)) for non-LogD targets and leaves LogD unchanged; do not apply this scorer transform twice.",
+      "source_label_rule_verbatim": "10^-6 cm/s; official challenge overall metric=MA-RAE; scorer uses log10(1+max(y,0)) for non-LogD targets and leaves LogD unchanged; do not apply this scorer transform twice.",
+      "assay_definition": "Caco-2 Papp A>B: Apical-to-basolateral apparent permeability, 10^-6 cm/s.",
+      "benchmark_metric": "MAE",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "standardized_head_to_admitted_source_scale",
+        "mean": 12.569959420289855,
+        "scale": 10.729372214360696
+      },
+      "class_meaning_documented": false,
+      "class_labels": null,
+      "physical_range": {
+        "minimum": 0,
+        "maximum": null,
+        "basis": "Apparent permeability is nonnegative."
+      }
+    },
+    "openadmet:hlm_clint": {
+      "endpoint_id": "openadmet:hlm_clint",
+      "output_index": 54,
+      "display_name": "Human liver microsomal clearance",
+      "category": "Metabolism",
+      "task_type": "regression",
+      "unit_or_scale": "mL/min/kg",
+      "native_unit_or_label_rule": "mL/min/kg; official challenge overall metric=MA-RAE; scorer uses log10(1+max(y,0)) for non-LogD targets and leaves LogD unchanged; do not apply this scorer transform twice.",
+      "source_label_rule_verbatim": "mL/min/kg; official challenge overall metric=MA-RAE; scorer uses log10(1+max(y,0)) for non-LogD targets and leaves LogD unchanged; do not apply this scorer transform twice.",
+      "assay_definition": "Human Liver Microsomal (HLM) CLint: Human liver microsomal intrinsic clearance, mL/min/kg.",
+      "benchmark_metric": "MAE",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "standardized_head_to_admitted_source_scale",
+        "mean": 52.900067159167236,
+        "scale": 126.07522829666394
+      },
+      "class_meaning_documented": false,
+      "class_labels": null,
+      "physical_range": {
+        "minimum": 0,
+        "maximum": null,
+        "basis": "Intrinsic clearance is a nonnegative rate."
+      }
+    },
+    "openadmet:ksol": {
+      "endpoint_id": "openadmet:ksol",
+      "output_index": 55,
+      "display_name": "Kinetic solubility",
+      "category": "Toxicity and bioactivity",
+      "task_type": "regression",
+      "unit_or_scale": "µM",
+      "native_unit_or_label_rule": "µM; official challenge overall metric=MA-RAE; scorer uses log10(1+max(y,0)) for non-LogD targets and leaves LogD unchanged; do not apply this scorer transform twice.",
+      "source_label_rule_verbatim": "µM; official challenge overall metric=MA-RAE; scorer uses log10(1+max(y,0)) for non-LogD targets and leaves LogD unchanged; do not apply this scorer transform twice.",
+      "assay_definition": "Kinetic Solubility KSOL: Kinetic solubility, µM.",
+      "benchmark_metric": "MAE",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "standardized_head_to_admitted_source_scale",
+        "mean": 145.85145117412935,
+        "scale": 114.92590192854993
+      },
+      "class_meaning_documented": false,
+      "class_labels": null,
+      "physical_range": {
+        "minimum": 0,
+        "maximum": null,
+        "basis": "Concentration is nonnegative."
+      }
+    },
+    "openadmet:logd": {
+      "endpoint_id": "openadmet:logd",
+      "output_index": 56,
+      "display_name": "LogD",
+      "category": "Physicochemical",
+      "task_type": "regression",
+      "unit_or_scale": "Dimensionless",
+      "native_unit_or_label_rule": "dimensionless; official challenge overall metric=MA-RAE; scorer uses log10(1+max(y,0)) for non-LogD targets and leaves LogD unchanged; do not apply this scorer transform twice.",
+      "source_label_rule_verbatim": "dimensionless; official challenge overall metric=MA-RAE; scorer uses log10(1+max(y,0)) for non-LogD targets and leaves LogD unchanged; do not apply this scorer transform twice.",
+      "assay_definition": "LogD: LogD, dimensionless; at a specified pH, exact pH absent from checked public summary.",
+      "benchmark_metric": "MAE",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "standardized_head_to_admitted_source_scale",
+        "mean": 2.118971141781681,
+        "scale": 1.192818933956384
+      },
+      "class_meaning_documented": false,
+      "class_labels": null
+    },
+    "openadmet:mbpb": {
+      "endpoint_id": "openadmet:mbpb",
+      "output_index": 57,
+      "display_name": "Mouse brain protein binding",
+      "category": "Distribution",
+      "task_type": "regression",
+      "unit_or_scale": "% unbound",
+      "native_unit_or_label_rule": "% unbound; official challenge overall metric=MA-RAE; scorer uses log10(1+max(y,0)) for non-LogD targets and leaves LogD unchanged; do not apply this scorer transform twice.",
+      "source_label_rule_verbatim": "% unbound; official challenge overall metric=MA-RAE; scorer uses log10(1+max(y,0)) for non-LogD targets and leaves LogD unchanged; do not apply this scorer transform twice.",
+      "assay_definition": "Mouse Brain Protein Binding (MBPB): Mouse brain protein binding, % unbound.",
+      "benchmark_metric": "MAE",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "standardized_head_to_admitted_source_scale",
+        "mean": 7.5330878552971585,
+        "scale": 10.86328090356212
+      },
+      "class_meaning_documented": false,
+      "class_labels": null,
+      "physical_range": {
+        "minimum": 0,
+        "maximum": 100,
+        "basis": "Percent unbound is between 0 and 100."
+      }
+    },
+    "openadmet:mgmb": {
+      "endpoint_id": "openadmet:mgmb",
+      "output_index": 58,
+      "display_name": "Mouse gastrocnemius muscle binding",
+      "category": "Distribution",
+      "task_type": "regression",
+      "unit_or_scale": "% unbound",
+      "native_unit_or_label_rule": "% unbound; official challenge overall metric=MA-RAE; scorer uses log10(1+max(y,0)) for non-LogD targets and leaves LogD unchanged; do not apply this scorer transform twice.",
+      "source_label_rule_verbatim": "% unbound; official challenge overall metric=MA-RAE; scorer uses log10(1+max(y,0)) for non-LogD targets and leaves LogD unchanged; do not apply this scorer transform twice.",
+      "assay_definition": "Mouse Gastrocnemius Muscle Binding (MGMB): Mouse gastrocnemius muscle binding, % unbound.",
+      "benchmark_metric": "MAE",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "standardized_head_to_admitted_source_scale",
+        "mean": 7.5428335329341305,
+        "scale": 10.046113906224615
+      },
+      "class_meaning_documented": false,
+      "class_labels": null,
+      "physical_range": {
+        "minimum": 0,
+        "maximum": 100,
+        "basis": "Percent unbound is between 0 and 100."
+      }
+    },
+    "openadmet:mlm_clint": {
+      "endpoint_id": "openadmet:mlm_clint",
+      "output_index": 59,
+      "display_name": "Mouse liver microsomal clearance",
+      "category": "Metabolism",
+      "task_type": "regression",
+      "unit_or_scale": "mL/min/kg",
+      "native_unit_or_label_rule": "mL/min/kg; official challenge overall metric=MA-RAE; scorer uses log10(1+max(y,0)) for non-LogD targets and leaves LogD unchanged; do not apply this scorer transform twice.",
+      "source_label_rule_verbatim": "mL/min/kg; official challenge overall metric=MA-RAE; scorer uses log10(1+max(y,0)) for non-LogD targets and leaves LogD unchanged; do not apply this scorer transform twice.",
+      "assay_definition": "Mouse Liver Microsomal (MLM) CLint: Mouse liver microsomal intrinsic clearance, mL/min/kg.",
+      "benchmark_metric": "MAE",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "standardized_head_to_admitted_source_scale",
+        "mean": 551.1313891236969,
+        "scale": 916.7586961528611
+      },
+      "class_meaning_documented": false,
+      "class_labels": null,
+      "physical_range": {
+        "minimum": 0,
+        "maximum": null,
+        "basis": "Intrinsic clearance is a nonnegative rate."
+      }
+    },
+    "openadmet:mppb": {
+      "endpoint_id": "openadmet:mppb",
+      "output_index": 60,
+      "display_name": "Mouse plasma protein binding",
+      "category": "Distribution",
+      "task_type": "regression",
+      "unit_or_scale": "% unbound",
+      "native_unit_or_label_rule": "% unbound; official challenge overall metric=MA-RAE; scorer uses log10(1+max(y,0)) for non-LogD targets and leaves LogD unchanged; do not apply this scorer transform twice.",
+      "source_label_rule_verbatim": "% unbound; official challenge overall metric=MA-RAE; scorer uses log10(1+max(y,0)) for non-LogD targets and leaves LogD unchanged; do not apply this scorer transform twice.",
+      "assay_definition": "Mouse Plasma Protein Binding (MPPB): Mouse plasma protein binding, % unbound.",
+      "benchmark_metric": "MAE",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "standardized_head_to_admitted_source_scale",
+        "mean": 14.937611940298506,
+        "scale": 16.389391007012826
+      },
+      "class_meaning_documented": false,
+      "class_labels": null,
+      "physical_range": {
+        "minimum": 0,
+        "maximum": 100,
+        "basis": "Percent unbound is between 0 and 100."
+      }
+    },
+    "tbg_ligand_displacement": {
+      "endpoint_id": "tbg_ligand_displacement",
+      "output_index": 61,
+      "display_name": "Thyroxine-binding globulin ligand displacement",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "percent inhibition at 20% cutoff; class1=active/binder",
+      "assay_definition": "TBG single-point ligand-displacement screen; author 20% inhibition classification with reported quality flags applied.",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/roster_expansion/final_three/restart_20261112_01/final_three_roster_reconciled_pampa.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Below activity cutoff (0)",
+        "Binder (1)"
+      ],
+      "class_0_semantics": "below the author 20% activity threshold",
+      "class_1_semantics": "active/binder at or above the author 20% activity threshold"
+    },
+    "tdc:pampa_ncats": {
+      "endpoint_id": "tdc:pampa_ncats",
+      "output_index": 62,
+      "display_name": "PAMPA permeability",
+      "category": "Absorption",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "Binary: class1=high permeability; class0=low-to-moderate permeability.",
+      "assay_definition": "NCATS PAMPA_NCATS development-cohort binary permeability classification.",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/roster_expansion/final_three/restart_20261112_01/final_three_roster_reconciled_pampa.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Low to moderate permeability (0)",
+        "High permeability (1)"
+      ],
+      "class_0_semantics": "low-to-moderate permeability.",
+      "class_1_semantics": "high permeability"
+    },
+    "tox21:gamma_h2ax_aid1224845": {
+      "endpoint_id": "tox21:gamma_h2ax_aid1224845",
+      "output_index": 63,
+      "display_name": "γ-H2AX phosphorylation",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "class1=depositor/PubChem Active; class0=Inactive; inconclusive, missing, revoked and conflicting calls masked.",
+      "assay_definition": "Original Tox21 qHTS γH2AX phosphorylation/agonist screen; PubChem AID 1224845.",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/roster_expansion/final_three/aid1224845_20261112_01/final_three_roster_reconciled_aid1224845.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Inactive (0)",
+        "Active (1)"
+      ],
+      "class_0_semantics": "Inactive",
+      "class_1_semantics": "depositor/PubChem Active"
+    },
+    "tox21:nr_ahr": {
+      "endpoint_id": "tox21:nr_ahr",
+      "output_index": 64,
+      "display_name": "Aryl hydrocarbon receptor activity",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "not present in selected local roster metadata",
+      "assay_definition": "tox21:nr_ahr",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": null,
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Inactive (0)",
+        "Active (1)"
+      ],
+      "class_0_semantics": "inactive",
+      "class_1_semantics": "active"
+    },
+    "tox21:nr_ar": {
+      "endpoint_id": "tox21:nr_ar",
+      "output_index": 65,
+      "display_name": "Androgen receptor activity",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "not present in selected local roster metadata",
+      "assay_definition": "tox21:nr_ar",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": null,
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Inactive (0)",
+        "Active (1)"
+      ],
+      "class_0_semantics": "inactive",
+      "class_1_semantics": "active"
+    },
+    "tox21:nr_ar_lbd": {
+      "endpoint_id": "tox21:nr_ar_lbd",
+      "output_index": 66,
+      "display_name": "Androgen receptor ligand-binding domain activity",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "not present in selected local roster metadata",
+      "assay_definition": "tox21:nr_ar_lbd",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": null,
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Inactive (0)",
+        "Active (1)"
+      ],
+      "class_0_semantics": "inactive",
+      "class_1_semantics": "active"
+    },
+    "tox21:nr_aromatase": {
+      "endpoint_id": "tox21:nr_aromatase",
+      "output_index": 67,
+      "display_name": "Aromatase inhibition",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "not present in selected local roster metadata",
+      "assay_definition": "tox21:nr_aromatase",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": null,
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Inactive (0)",
+        "Active (1)"
+      ],
+      "class_0_semantics": "inactive",
+      "class_1_semantics": "active"
+    },
+    "tox21:nr_er": {
+      "endpoint_id": "tox21:nr_er",
+      "output_index": 68,
+      "display_name": "Estrogen receptor activity",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "not present in selected local roster metadata",
+      "assay_definition": "tox21:nr_er",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": null,
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Inactive (0)",
+        "Active (1)"
+      ],
+      "class_0_semantics": "inactive",
+      "class_1_semantics": "active"
+    },
+    "tox21:nr_er_lbd": {
+      "endpoint_id": "tox21:nr_er_lbd",
+      "output_index": 69,
+      "display_name": "Estrogen receptor ligand-binding domain activity",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "not present in selected local roster metadata",
+      "assay_definition": "tox21:nr_er_lbd",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": null,
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Inactive (0)",
+        "Active (1)"
+      ],
+      "class_0_semantics": "inactive",
+      "class_1_semantics": "active"
+    },
+    "tox21:nr_ppar_gamma": {
+      "endpoint_id": "tox21:nr_ppar_gamma",
+      "output_index": 70,
+      "display_name": "PPARγ activity",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "not present in selected local roster metadata",
+      "assay_definition": "tox21:nr_ppar_gamma",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": null,
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Inactive (0)",
+        "Active (1)"
+      ],
+      "class_0_semantics": "inactive",
+      "class_1_semantics": "active"
+    },
+    "tox21:sr_are": {
+      "endpoint_id": "tox21:sr_are",
+      "output_index": 71,
+      "display_name": "Antioxidant response element activity",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "not present in selected local roster metadata",
+      "assay_definition": "tox21:sr_are",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": null,
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Inactive (0)",
+        "Active (1)"
+      ],
+      "class_0_semantics": "inactive",
+      "class_1_semantics": "active"
+    },
+    "tox21:sr_atad5": {
+      "endpoint_id": "tox21:sr_atad5",
+      "output_index": 72,
+      "display_name": "ATAD5 response",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "not present in selected local roster metadata",
+      "assay_definition": "tox21:sr_atad5",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": null,
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Inactive (0)",
+        "Active (1)"
+      ],
+      "class_0_semantics": "inactive",
+      "class_1_semantics": "active"
+    },
+    "tox21:sr_hse": {
+      "endpoint_id": "tox21:sr_hse",
+      "output_index": 73,
+      "display_name": "Heat shock response (SR-HSE)",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "not present in selected local roster metadata",
+      "assay_definition": "tox21:sr_hse",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": null,
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Inactive (0)",
+        "Active (1)"
+      ],
+      "class_0_semantics": "inactive",
+      "class_1_semantics": "active"
+    },
+    "tox21:sr_mmp": {
+      "endpoint_id": "tox21:sr_mmp",
+      "output_index": 74,
+      "display_name": "Mitochondrial membrane potential",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "not present in selected local roster metadata",
+      "assay_definition": "tox21:sr_mmp",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": null,
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Inactive (0)",
+        "Active (1)"
+      ],
+      "class_0_semantics": "inactive",
+      "class_1_semantics": "active"
+    },
+    "tox21:sr_p53": {
+      "endpoint_id": "tox21:sr_p53",
+      "output_index": 75,
+      "display_name": "p53 response",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "not present in selected local roster metadata",
+      "assay_definition": "tox21:sr_p53",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": null,
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Inactive (0)",
+        "Active (1)"
+      ],
+      "class_0_semantics": "inactive",
+      "class_1_semantics": "active"
+    },
+    "toxcast:NVS_NR_bER": {
+      "endpoint_id": "toxcast:NVS_NR_bER",
+      "output_index": 76,
+      "display_name": "Bovine estrogen receptor binding",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "Preserved supplied binary activity indicator: 1=active, 0=inactive; no thresholds recomputed; missing/unexpected masked.",
+      "assay_definition": "Data from the assay component NVS_NR_bER was analyzed into 1 assay endpoint. This assay endpoint, NVS_NR_bER, was analyzed in the positive analysis fitting direction relative to DMSO as the negative control and baseline of activity. \nUsing a type of binding reporter, loss-of-signal activity can be used to understand changes in the binding as they relate to the gene ESR1. \nFurthermore, this assay endpoint can be referred to as a primary readout, because the performed assay has only produced 1 assay endpoint. \nTo generalize the intended target to other relatable targets, this assay endpoint is annotated to the nuclear receptor intended target family, where the subfamily is steroidal.; target=Changes to scintillation counting signals produced from the receptor-ligand binding of the key ligand [[3H]-estradiol] are indicative of a change in receptor function and kinetics for the cattle estrogen receptor 1 [GeneSymbol:ESR1 | GeneID:407238 | Uniprot_SwissProt_Accession:P49884].; species=bovine; function=binding; readout=percent_activity",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Inactive (0)",
+        "Active (1)"
+      ],
+      "class_0_semantics": "inactive",
+      "class_1_semantics": "active"
+    },
+    "toxcast:NVS_NR_hER": {
+      "endpoint_id": "toxcast:NVS_NR_hER",
+      "output_index": 77,
+      "display_name": "Human estrogen receptor binding",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "Preserved supplied binary activity indicator: 1=active, 0=inactive; no thresholds recomputed; missing/unexpected masked.",
+      "assay_definition": "Data from the assay component NVS_NR_hER was analyzed into 1 assay endpoint. This assay endpoint, NVS_NR_hER, was analyzed in the positive analysis fitting direction relative to DMSO as the negative control and baseline of activity. \nUsing a type of binding reporter, loss-of-signal activity can be used to understand changes in the binding as they relate to the gene ESR1. \nFurthermore, this assay endpoint can be referred to as a primary readout, because the performed assay has only produced 1 assay endpoint. \nTo generalize the intended target to other relatable targets, this assay endpoint is annotated to the nuclear receptor intended target family, where the subfamily is steroidal.; target=Changes to scintillation counting signals produced from the receptor-ligand binding of the key ligand [[3H]-estradiol] are indicative of a change in receptor function and kinetics for the human estrogen receptor 1 [GeneSymbol:ESR1 | GeneID:2099 | Uniprot_SwissProt_Accession:P03372].; species=human; function=binding; readout=percent_activity",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Inactive (0)",
+        "Active (1)"
+      ],
+      "class_0_semantics": "inactive",
+      "class_1_semantics": "active"
+    },
+    "toxcast:NVS_NR_hPPARg": {
+      "endpoint_id": "toxcast:NVS_NR_hPPARg",
+      "output_index": 78,
+      "display_name": "Human PPARγ binding",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "Preserved supplied binary activity indicator: 1=active, 0=inactive; no thresholds recomputed; missing/unexpected masked.",
+      "assay_definition": "Data from the assay component NVS_NR_hPPARg was analyzed into 1 assay endpoint. This assay endpoint, NVS_NR_hPPARg, was analyzed in the positive analysis fitting direction relative to DMSO as the negative control and baseline of activity. \nUsing a type of binding reporter, loss-of-signal activity can be used to understand changes in the binding as they relate to the gene PPARG. \nFurthermore, this assay endpoint can be referred to as a primary readout, because the performed assay has only produced 1 assay endpoint. \nTo generalize the intended target to other relatable targets, this assay endpoint is annotated to the nuclear receptor intended target family, where the subfamily is non-steroidal.; target=Changes to fluorescence polarization signals produced from the receptor-ligand binding of the key ligand [Fluorescent Ligand] are indicative of a change in receptor function and kinetics for the human peroxisome proliferator-activated receptor gamma [GeneSymbol:PPARG | GeneID:5468 | Uniprot_SwissProt_Accession:P37231].; species=human; function=binding; readout=percent_activity",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Inactive (0)",
+        "Active (1)"
+      ],
+      "class_0_semantics": "inactive",
+      "class_1_semantics": "active"
+    },
+    "toxcast:NVS_NR_mERa": {
+      "endpoint_id": "toxcast:NVS_NR_mERa",
+      "output_index": 79,
+      "display_name": "Mouse ERα binding",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "Preserved supplied binary activity indicator: 1=active, 0=inactive; no thresholds recomputed; missing/unexpected masked.",
+      "assay_definition": "Data from the assay component NVS_NR_mERa was analyzed into 1 assay endpoint. This assay endpoint, NVS_NR_mERa, was analyzed in the positive analysis fitting direction relative to DMSO as the negative control and baseline of activity. \nUsing a type of binding reporter, loss-of-signal activity can be used to understand changes in the binding as they relate to the gene Esr1. \nFurthermore, this assay endpoint can be referred to as a primary readout, because the performed assay has only produced 1 assay endpoint. \nTo generalize the intended target to other relatable targets, this assay endpoint is annotated to the nuclear receptor intended target family, where the subfamily is steroidal.; target=Changes to scintillation counting signals produced from the receptor-ligand binding of the key ligand [[3H]-estradiol] are indicative of a change in receptor function and kinetics for the house mouse estrogen receptor 1 (alpha) [GeneSymbol:Esr1 | GeneID:13982 | Uniprot_SwissProt_Accession:P19785].; species=mouse; function=binding; readout=percent_activity",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Inactive (0)",
+        "Active (1)"
+      ],
+      "class_0_semantics": "inactive",
+      "class_1_semantics": "active"
+    },
+    "toxcast:OT_AR_ARSRC1_0960": {
+      "endpoint_id": "toxcast:OT_AR_ARSRC1_0960",
+      "output_index": 80,
+      "display_name": "Androgen receptor–SRC-1 interaction",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "Preserved supplied binary activity indicator: 1=active, 0=inactive; no thresholds recomputed; missing/unexpected masked.",
+      "assay_definition": "Data from the assay component OT_AR_ARSRC1_0960 was analyzed into 1 assay endpoint. \nThis assay endpoint, OT_AR_ARSRC1_0960, was analyzed in the positive analysis fitting direction relative to DMSO as the negative control and baseline of activity. \nUsing a type of binding reporter, measures of receptor for gain-of-signal activity can be used to understand the binding at the pathway-level as they relate to the gene AR. \nFurthermore, this assay endpoint can be referred to as a primary readout, because the performed assay has only produced 1 assay endpoint. \nTo generalize the intended target to other relatable targets, this assay endpoint is annotated to the nuclear receptor intended target family, where the subfamily is steroidal.; target=Changes to fluorescence intensity signals produced from the protein fragment complementation are indicative of a change in the receptor function and kinetics for the human androgen receptor and SRC proto-oncogene, non-receptor tyrosine kinase [GeneSymbol:AR & SRC | GeneID:367 & 6714 | Uniprot_SwissProt_Accession:P10275 & P12931].; species=human; function=binding; readout=percent_activity",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Inactive (0)",
+        "Active (1)"
+      ],
+      "class_0_semantics": "inactive",
+      "class_1_semantics": "active"
+    },
+    "toxcast:OT_ER_ERaERa_0480": {
+      "endpoint_id": "toxcast:OT_ER_ERaERa_0480",
+      "output_index": 81,
+      "display_name": "ERα homodimer interaction",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "Preserved supplied binary activity indicator: 1=active, 0=inactive; no thresholds recomputed; missing/unexpected masked.",
+      "assay_definition": "Data from the assay component OT_ER_ERaERa_0480 was analyzed into 1 assay endpoint. \nThis assay endpoint, OT_ER_ERaERa_0480, was analyzed in the positive analysis fitting direction relative to DMSO as the negative control and baseline of activity. \nUsing a type of binding reporter, measures of receptor for gain-of-signal activity can be used to understand the binding at the pathway-level as they relate to the gene ESR1. \nFurthermore, this assay endpoint can be referred to as a primary readout, because the performed assay has only produced 1 assay endpoint. \nTo generalize the intended target to other relatable targets, this assay endpoint is annotated to the nuclear receptor intended target family, where the subfamily is steroidal.; target=Changes to fluorescence intensity signals produced from the protein fragment complementation are indicative of a change in the receptor function and kinetics for the human estrogen receptor 1 [GeneSymbol:ESR1 | GeneID:2099 | Uniprot_SwissProt_Accession:P03372].; species=human; function=binding; readout=percent_activity",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Inactive (0)",
+        "Active (1)"
+      ],
+      "class_0_semantics": "inactive",
+      "class_1_semantics": "active"
+    },
+    "toxcast:OT_ER_ERaERb_0480": {
+      "endpoint_id": "toxcast:OT_ER_ERaERb_0480",
+      "output_index": 82,
+      "display_name": "ERα–ERβ interaction",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "Preserved supplied binary activity indicator: 1=active, 0=inactive; no thresholds recomputed; missing/unexpected masked.",
+      "assay_definition": "Data from the assay component OT_ER_ERaERb_0480 was analyzed into 1 assay endpoint. \nThis assay endpoint, OT_ER_ERaERb_0480, was analyzed in the positive analysis fitting direction relative to DMSO as the negative control and baseline of activity. \nUsing a type of binding reporter, measures of receptor for gain-of-signal activity can be used to understand the binding at the pathway-level as they relate to the gene ESR1 and ESR2. \nFurthermore, this assay endpoint can be referred to as a primary readout, because the performed assay has only produced 1 assay endpoint. \nTo generalize the intended target to other relatable targets, this assay endpoint is annotated to the nuclear receptor intended target family, where the subfamily is steroidal.; target=Changes to fluorescence intensity signals produced from the protein fragment complementation are indicative of a change in the receptor function and kinetics for the human estrogen receptor 1 and estrogen receptor 2 (ER beta) [GeneSymbol:ESR1 & ESR2 | GeneID:2099 & 2100 | Uniprot_SwissProt_Accession:P03372 & Q92731].; species=human; function=binding; readout=percent_activity",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Inactive (0)",
+        "Active (1)"
+      ],
+      "class_0_semantics": "inactive",
+      "class_1_semantics": "active"
+    },
+    "toxcast:OT_ER_ERbERb_0480": {
+      "endpoint_id": "toxcast:OT_ER_ERbERb_0480",
+      "output_index": 83,
+      "display_name": "ERβ homodimer interaction",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "Preserved supplied binary activity indicator: 1=active, 0=inactive; no thresholds recomputed; missing/unexpected masked.",
+      "assay_definition": "Data from the assay component OT_ER_ERbERb_0480 was analyzed into 1 assay endpoint. \nThis assay endpoint, OT_ER_ERbERb_0480, was analyzed in the positive analysis fitting direction relative to DMSO as the negative control and baseline of activity. \nUsing a type of binding reporter, measures of receptor for gain-of-signal activity can be used to understand the binding at the pathway-level as they relate to the gene ESR2. \nFurthermore, this assay endpoint can be referred to as a primary readout, because the performed assay has only produced 1 assay endpoint. \nTo generalize the intended target to other relatable targets, this assay endpoint is annotated to the nuclear receptor intended target family, where the subfamily is steroidal.; target=Changes to fluorescence intensity signals produced from the protein fragment complementation are indicative of a change in the receptor function and kinetics for the human estrogen receptor 2 (ER beta) [GeneSymbol:ESR2 | GeneID:2100 | Uniprot_SwissProt_Accession:Q92731].; species=human; function=binding; readout=percent_activity",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Inactive (0)",
+        "Active (1)"
+      ],
+      "class_0_semantics": "inactive",
+      "class_1_semantics": "active"
+    },
+    "toxcast:OT_FXR_FXRSRC1_0480": {
+      "endpoint_id": "toxcast:OT_FXR_FXRSRC1_0480",
+      "output_index": 84,
+      "display_name": "FXR–SRC-1 interaction",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "Preserved supplied binary activity indicator: 1=active, 0=inactive; no thresholds recomputed; missing/unexpected masked.",
+      "assay_definition": "Data from the assay component OT_FXR_FXRSRC1_0480 was analyzed into 1 assay endpoint. \nThis assay endpoint, OT_FXR_FXRSRC1_0480, was analyzed in the positive analysis fitting direction relative to DMSO as the negative control and baseline of activity. \nUsing a type of binding reporter, measures of receptor for gain-of-signal activity can be used to understand the binding at the pathway-level as they relate to the gene NR1H4. \nFurthermore, this assay endpoint can be referred to as a primary readout, because the performed assay has only produced 1 assay endpoint. \nTo generalize the intended target to other relatable targets, this assay endpoint is annotated to the nuclear receptor intended target family, where the subfamily is non-steroidal.; target=Changes to fluorescence intensity signals produced from the protein fragment complementation are indicative of a change in the receptor function and kinetics for the human SRC proto-oncogene, non-receptor tyrosine kinase and nuclear receptor subfamily 1, group H, member 4 [GeneSymbol:SRC & NR1H4 | GeneID:6714 & 9971 | Uniprot_SwissProt_Accession:P12931 & Q96RI1].; species=human; function=binding; readout=percent_activity",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Inactive (0)",
+        "Active (1)"
+      ],
+      "class_0_semantics": "inactive",
+      "class_1_semantics": "active"
+    },
+    "toxcast:OT_NURR1_NURR1RXRa_0480": {
+      "endpoint_id": "toxcast:OT_NURR1_NURR1RXRa_0480",
+      "output_index": 85,
+      "display_name": "NURR1–RXRα interaction",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "Preserved supplied binary activity indicator: 1=active, 0=inactive; no thresholds recomputed; missing/unexpected masked.",
+      "assay_definition": "Data from the assay component OT_NURR1_NURR1RXRa_0480 was analyzed into 1 assay endpoint. \nThis assay endpoint, OT_NURR1_NURR1RXRa_0480, was analyzed in the positive analysis fitting direction relative to DMSO as the negative control and baseline of activity. \nUsing a type of binding reporter, measures of receptor for gain-of-signal activity can be used to understand the binding at the pathway-level as they relate to the gene RXRA. \nFurthermore, this assay endpoint can be referred to as a primary readout, because the performed assay has only produced 1 assay endpoint. \nTo generalize the intended target to other relatable targets, this assay endpoint is annotated to the nuclear receptor intended target family, where the subfamily is non-steroidal.; target=Changes to fluorescence intensity signals produced from the protein fragment complementation are indicative of a change in the receptor function and kinetics for the human nuclear receptor subfamily 4, group A, member 2 and retinoid X receptor, alpha [GeneSymbol:NR4A2 & RXRA | GeneID:4929 & 6256 | Uniprot_SwissProt_Accession:P43354 & P19793].; species=human; function=binding; readout=percent_activity",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Inactive (0)",
+        "Active (1)"
+      ],
+      "class_0_semantics": "inactive",
+      "class_1_semantics": "active"
+    },
+    "toxcast:TOX21_AR_BLA_Antagonist_ratio": {
+      "endpoint_id": "toxcast:TOX21_AR_BLA_Antagonist_ratio",
+      "output_index": 86,
+      "display_name": "Androgen receptor antagonist response",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "Preserved supplied binary activity indicator: 1=active, 0=inactive; no thresholds recomputed; missing/unexpected masked.",
+      "assay_definition": "Data from the assay component TOX21_AR_BLA_Antagonist_ratio was analyzed into 1 assay endpoint. This assay endpoint, TOX21_AR_BLA_Antagonist_ratio, was analyzed in the positive analysis fitting direction relative to DMSO as the negative control and baseline of activity. Using a type of inducible reporter, loss-of-signal activity can be used to understand changes in the reporter gene as they relate to the gene AR. Furthermore, this assay endpoint can be referred to as a primary readout, because this assay has produced multiple assay endpoints and this ratio serves a reporter gene function to understand target activity. To generalize the intended target to other relatable targets, this assay endpoint is annotated to the nuclear receptor intended target family, where the subfamily is steroidal.; target=TOX21_AR_BLA_Antagonist_ratio was designed to target nuclear receptor activity at the protein (receptor) level, specifically mapping to AR gene(s) using a positive control of Cyproterone acetate; species=human; function=ratio; readout=percent_activity",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Inactive (0)",
+        "Active (1)"
+      ],
+      "class_0_semantics": "inactive",
+      "class_1_semantics": "active"
+    },
+    "toxcast:TOX21_ERa_BLA_Antagonist_ratio": {
+      "endpoint_id": "toxcast:TOX21_ERa_BLA_Antagonist_ratio",
+      "output_index": 87,
+      "display_name": "ERα antagonist response",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "Preserved supplied binary activity indicator: 1=active, 0=inactive; no thresholds recomputed; missing/unexpected masked.",
+      "assay_definition": "Data from the assay component TOX21_ERa_BLA_Antagonist_ratio was analyzed into 1 assay endpoint. This assay endpoint, TOX21_ERa_BLA_Antagonist_ratio, was analyzed in the positive analysis fitting direction relative to DMSO as the negative control and baseline of activity. Using a type of inducible reporter, loss-of-signal activity can be used to understand changes in the reporter gene as they relate to the gene ESR1. Furthermore, this assay endpoint can be referred to as a primary readout, because this assay has produced multiple assay endpoints and this ratio serves a reporter gene function to understand target activity. To generalize the intended target to other relatable targets, this assay endpoint is annotated to the nuclear receptor intended target family, where the subfamily is steroidal.; target=TOX21_ERa_BLA_Antagonist_ratio was designed to target nuclear receptor activity at the protein (receptor) level, specifically mapping to ESR1 gene(s) using a positive control of 4-hydroxytamoxifen; species=human; function=ratio; readout=percent_activity",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Inactive (0)",
+        "Active (1)"
+      ],
+      "class_0_semantics": "inactive",
+      "class_1_semantics": "active"
+    },
+    "toxcast:TOX21_GR_BLA_Agonist_ratio": {
+      "endpoint_id": "toxcast:TOX21_GR_BLA_Agonist_ratio",
+      "output_index": 88,
+      "display_name": "Glucocorticoid receptor agonist response",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "Preserved supplied binary activity indicator: 1=active, 0=inactive; no thresholds recomputed; missing/unexpected masked.",
+      "assay_definition": "Data from the assay component TOX21_GR_BLA_Agonist_ratio was analyzed into 1 assay endpoint. This assay endpoint, TOX21_GR_BLA_Agonist_ratio, was analyzed in the positive analysis fitting direction relative to DMSO as the negative control and baseline of activity. Using a type of inducible reporter, gain-of-signal activity can be used to understand changes in the reporter gene as they relate to the gene NR3C1. Furthermore, this assay endpoint can be referred to as a primary readout, because this assay has produced multiple assay endpoints where this ratio serves a reporter gene function to understand target activity. To generalize the intended target to other relatable targets, this assay endpoint is annotated to the nuclear receptor intended target family, where the subfamily is steroidal.; target=TOX21_GR_BLA_Agonist_ratio was designed to target nuclear receptor (non-steroidal) activity at the protein (receptor) level, specifically mapping to NR3C1 gene(s) using a positive control of Dexamethasone; species=human; function=ratio; readout=percent_activity",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Inactive (0)",
+        "Active (1)"
+      ],
+      "class_0_semantics": "inactive",
+      "class_1_semantics": "active"
+    },
+    "toxcast:TOX21_GR_BLA_Antagonist_ratio": {
+      "endpoint_id": "toxcast:TOX21_GR_BLA_Antagonist_ratio",
+      "output_index": 89,
+      "display_name": "Glucocorticoid receptor antagonist response",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "Preserved supplied binary activity indicator: 1=active, 0=inactive; no thresholds recomputed; missing/unexpected masked.",
+      "assay_definition": "Data from the assay component TOX21_GR_BLA_Antagonist_ratio was analyzed into 1 assay endpoint. This assay endpoint, TOX21_GR_BLA_Antagonist_ratio, was analyzed in the positive analysis fitting direction relative to DMSO as the negative control and baseline of activity. Using a type of inducible reporter, loss-of-signal activity can be used to understand changes in the reporter gene as they relate to the gene NR3C1. Furthermore, this assay endpoint can be referred to as a primary readout, because this assay has produced multiple assay endpoints and this ratio serves a reporter gene function to understand gene activity. To generalize the intended target to other relatable targets, this assay endpoint is annotated to the nuclear receptor intended target family, where the subfamily is steroidal.; target=TOX21_GR_BLA_Antagonist_ratio was designed to target nuclear receptor activity at the protein (receptor) level, specifically mapping to NR3C1 gene(s) using a positive control of Mifepristone; species=human; function=antagonist; readout=percent_activity",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Inactive (0)",
+        "Active (1)"
+      ],
+      "class_0_semantics": "inactive",
+      "class_1_semantics": "active"
+    },
+    "toxcast:TOX21_GR_BLA_Antagonist_viability": {
+      "endpoint_id": "toxcast:TOX21_GR_BLA_Antagonist_viability",
+      "output_index": 90,
+      "display_name": "Cell viability in the GR antagonist assay",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "Preserved supplied binary activity indicator: 1=active, 0=inactive; no thresholds recomputed; missing/unexpected masked.",
+      "assay_definition": "TOX21_GR_BLA_Antagonist_viability used a type of viability reporter where loss-of-signal activity can be used to understand changes in the cell viability. Furthermore, this assay endpoint can be referred to as a secondary readout, because this assay has produced multiple assay endpoints where this one serves a viability function. To generalize the intended target to other relatable targets, this assay endpoint is annotated to the cell cycle intended target family, where the subfamily is cytotoxicity.; target=Changes to bioluminescence signals produced from an enzymatic reaction catalyzed by luciferase between the key substrate [CellTiter-Glo] and the target cofactor [ATP] are correlated to the viability of the system.; species=human; function=viability; readout=percent_activity",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Inactive (0)",
+        "Active (1)"
+      ],
+      "class_0_semantics": "inactive",
+      "class_1_semantics": "active"
+    },
+    "toxcast:TOX21_MMP_viability": {
+      "endpoint_id": "toxcast:TOX21_MMP_viability",
+      "output_index": 91,
+      "display_name": "Cell viability in the mitochondrial membrane potential assay",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "Preserved supplied binary activity indicator: 1=active, 0=inactive; no thresholds recomputed; missing/unexpected masked.",
+      "assay_definition": "TOX21_MMP_viability used a type of viability reporter where loss-of-signal activity can be used to understand changes in the cell viability. Furthermore, this assay endpoint can be referred to as a secondary readout, because this assay has produced multiple assay endpoints where this one serves a viability function. To generalize the intended target to other relatable targets, this assay endpoint is annotated to the cell cycle intended target family, where the subfamily is cytotoxicity.; target=Changes to bioluminescence signals produced from an enzymatic reaction catalyzed by luciferase between the key substrate [CellTiter-Glo] and the target cofactor [ATP] are correlated to the viability of the system.; species=human; function=viability; readout=percent_activity",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Inactive (0)",
+        "Active (1)"
+      ],
+      "class_0_semantics": "inactive",
+      "class_1_semantics": "active"
+    },
+    "toxcast:TOX21_NFkB_BLA_agonist_ratio": {
+      "endpoint_id": "toxcast:TOX21_NFkB_BLA_agonist_ratio",
+      "output_index": 92,
+      "display_name": "NF-κB agonist response",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "Preserved supplied binary activity indicator: 1=active, 0=inactive; no thresholds recomputed; missing/unexpected masked.",
+      "assay_definition": "Data from the assay component TOX21_NFkB_BLA_Agonist_ratio was analyzed into 1 assay endpoint. This assay endpoint, TOX21_NFkB_BLA_Agonist_ratio, was analyzed in the positive analysis fitting direction relative to DMSO as the negative control and baseline of activity. Using a type of inducible reporter, gain-of-signal activity can be used to understand changes in the reporter gene as they relate to the gene NFKB1. Furthermore, this assay endpoint can be referred to as a primary readout, because this assay has produced multiple assay endpoints and this ratio serves a reporter gene function to understand target activity. To generalize the intended target to other relatable targets, this assay endpoint is annotated to the DNA binding intended target family, where the subfamily is NF-kappa B.; target=TOX21_NFkB_BLA_Agonist_ratio was designed to target transcription factor activity, specifically mapping to NFKB1 gene(s) using a positive control of TNFa; species=human; function=ratio; readout=percent_activity",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Inactive (0)",
+        "Active (1)"
+      ],
+      "class_0_semantics": "inactive",
+      "class_1_semantics": "active"
+    },
+    "toxcast:TOX21_NFkB_BLA_agonist_viability": {
+      "endpoint_id": "toxcast:TOX21_NFkB_BLA_agonist_viability",
+      "output_index": 93,
+      "display_name": "Cell viability in the NF-κB agonist assay",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "Preserved supplied binary activity indicator: 1=active, 0=inactive; no thresholds recomputed; missing/unexpected masked.",
+      "assay_definition": "TOX21_NFkB_BLA_Agonist_viability used a type of viability reporter where loss-of-signal activity can be used to understand changes in the cell viability. Furthermore, this assay endpoint can be referred to as a secondary readout, because this assay has produced multiple assay endpoints where this one serves a viability function. To generalize the intended target to other relatable targets, this assay endpoint is annotated to the cell cycle intended target family, where the subfamily is cytotoxicity.; target=Changes to bioluminescence signals produced from an enzymatic reaction catalyzed by luciferase between the key substrate [CellTiter-Glo] and the target cofactor [ATP] are correlated to the viability of the system.; species=human; function=viability; readout=percent_activity",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Inactive (0)",
+        "Active (1)"
+      ],
+      "class_0_semantics": "inactive",
+      "class_1_semantics": "active"
+    },
+    "toxcast:TOX21_TR_LUC_GH3_Antagonist": {
+      "endpoint_id": "toxcast:TOX21_TR_LUC_GH3_Antagonist",
+      "output_index": 94,
+      "display_name": "Thyroid receptor antagonist response (GH3)",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "Preserved supplied binary activity indicator: 1=active, 0=inactive; no thresholds recomputed; missing/unexpected masked.",
+      "assay_definition": "Data from the assay component TOX21_TR_LUC_GH3_Antagonist was analyzed into 1 assay endpoint. This assay endpoint, TOX21_TR_LUC_GH3_Antagonist, was analyzed in the positive analysis fitting direction relative to DMSO as the negative control and baseline of activity. Using a type of inducible reporter, loss-of-signal activity can be used to understand changes in the reporter gene as they relate to the gene THRA and THRB. Furthermore, this assay endpoint can be referred to as a primary readout, because the performed assay has only produced 1 assay endpoint. To generalize the intended target to other relatable targets, this assay endpoint is annotated to the nuclear receptor intended target family, where the subfamily is non-steroidal.; target=Changes to bioluminescence signals produced from an enzymatic reaction involving the key substrate [One-Glo] are indicative of changes in transcriptional gene expression due to antagonist activity regulated by the human thyroid hormone receptor, alpha and thyroid hormone receptor, beta [GeneSymbol:THRA & THRB | GeneID:7067 & 7068 | Uniprot_SwissProt_Accession:P10827 & P10828]. Thyroid receptor (TR), a nuclear hormone receptor, plays an important role in development, proliferation, differentiation, metabolism, brain function, and cardiovascular system. TR-interacting compounds have been shown to disrupt thyroid homeostasis.; species=rat; function=antagonist; readout=percent_activity",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Inactive (0)",
+        "Active (1)"
+      ],
+      "class_0_semantics": "inactive",
+      "class_1_semantics": "active"
+    },
+    "toxcast:TOX21_VDR_BLA_Agonist_viability": {
+      "endpoint_id": "toxcast:TOX21_VDR_BLA_Agonist_viability",
+      "output_index": 95,
+      "display_name": "Cell viability in the VDR agonist assay",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "Preserved supplied binary activity indicator: 1=active, 0=inactive; no thresholds recomputed; missing/unexpected masked.",
+      "assay_definition": "TOX21_VDR_BLA_Agonist_viability used a type of viability reporter where loss-of-signal activity can be used to understand changes in the cell viability. Furthermore, this assay endpoint can be referred to as a secondary readout, because this assay has produced multiple assay endpoints where this one serves a viability function. To generalize the intended target to other relatable targets, this assay endpoint is annotated to the cell cycle intended target family, where the subfamily is cytotoxicity.; target=Changes to bioluminescence signals produced from an enzymatic reaction catalyzed by luciferase between the key substrate [CellTiter-Glo] and the target cofactor [ATP] are correlated to the viability of the system.; species=human; function=viability; readout=percent_activity",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Inactive (0)",
+        "Active (1)"
+      ],
+      "class_0_semantics": "inactive",
+      "class_1_semantics": "active"
+    },
+    "toxcast:TOX21_p53_BLA_p2_viability": {
+      "endpoint_id": "toxcast:TOX21_p53_BLA_p2_viability",
+      "output_index": 96,
+      "display_name": "Cell viability in the p53 assay",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "Preserved supplied binary activity indicator: 1=active, 0=inactive; no thresholds recomputed; missing/unexpected masked.",
+      "assay_definition": "TOX21_p53_BLA_p2_viability used a type of viability reporter where loss-of-signal activity can be used to understand changes in the cell viability. Furthermore, this assay endpoint can be referred to as a secondary readout, because this assay has produced multiple assay endpoints where this one serves a viability function. To generalize the intended target to other relatable targets, this assay endpoint is annotated to the cell cycle intended target family, where the subfamily is cytotoxicity.; target=Changes to bioluminescence signals produced from an enzymatic reaction catalyzed by luciferase between the key substrate [CellTiter-Glo] and the target cofactor [ATP] are correlated to the viability of the system.; species=human; function=viability; readout=percent_activity",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Inactive (0)",
+        "Active (1)"
+      ],
+      "class_0_semantics": "inactive",
+      "class_1_semantics": "active"
+    },
+    "unregistered:ISTransBase/BSEP_Inhibitor": {
+      "endpoint_id": "unregistered:ISTransBase/BSEP_Inhibitor",
+      "output_index": 97,
+      "display_name": "BSEP inhibition",
+      "category": "Transport",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "1=IC50 <25 uM inhibitor; 0=IC50 >100 uM noninhibitor; 25-100 uM excluded.",
+      "assay_definition": "Human BSEP/ABCB11 inhibition",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Non-inhibitor (0)",
+        "Inhibitor (1)"
+      ],
+      "class_0_semantics": "IC50 >100 uM noninhibitor",
+      "class_1_semantics": "IC50 <25 uM inhibitor"
+    },
+    "unregistered:ISTransBase/MRP1_Inhibitor": {
+      "endpoint_id": "unregistered:ISTransBase/MRP1_Inhibitor",
+      "output_index": 98,
+      "display_name": "MRP1 inhibition",
+      "category": "Transport",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "Published curated MRP1 inhibition: 1=inhibitor, 0=noninhibitor; 0.5 inconclusive and N.A. masked.",
+      "assay_definition": "Human MRP1/ABCC1 inhibition",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Non-inhibitor (0)",
+        "Inhibitor (1)"
+      ],
+      "class_0_semantics": "noninhibitor",
+      "class_1_semantics": "inhibitor"
+    },
+    "deeppk:ob": {
+      "endpoint_id": "deeppk:ob",
+      "output_index": 99,
+      "display_name": "Oral bioavailability (Deep-PK)",
+      "category": "Toxicity and bioactivity",
+      "task_type": "classification",
+      "unit_or_scale": "binary call",
+      "native_unit_or_label_rule": "probability for numeric source class 1; class 0 probability is 1 minus this value",
+      "source_label_rule_verbatim": "Class 1: high oral bioavailability at the named 50%F target; Class 0: low",
+      "assay_definition": "Deep-PK author theory: Human oral bioavailability (20 and 50%F); Description: Human oral bioavailability determines the proportion (%) of an orally administered drug that enters the systemic circulation. It can also be reported as a fraction (Fabs) of the delivered dose that is absorbed intact into the systemic circulation after bypassing first-pass metabolism in the liver. Interpretation: The probability of 20%F, for example, indicates that the chance of a drug bioavailability can be greater than 20% within the range of Class 0 and Class 1 for low and high, respectively. Assay Type: In vitro.",
+      "benchmark_metric": "AUPRC",
+      "source_metadata_file": "clean/full_endpoint_roster/roster.csv",
+      "output_transform": {
+        "kind": "sigmoid_probability_for_numeric_class_1"
+      },
+      "class_meaning_documented": true,
+      "class_labels": [
+        "Low bioavailability (0)",
+        "High bioavailability (1)"
+      ],
+      "class_0_semantics": "low",
+      "class_1_semantics": "high oral bioavailability at the named 50%F target"
+    }
+  }
+}

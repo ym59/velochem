@@ -1,0 +1,4 @@
+include README.md
+include DISTRIBUTION_RIGHTS.md requirements-runtime.lock MODEL_CARD.md VERSION.json MANIFEST.sha256
+recursive-include src/velochem *.py *.json *.onnx
+recursive-include examples *.csv
