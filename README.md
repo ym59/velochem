@@ -1,6 +1,6 @@
 # VeloChem 1.0.0
 
-VeloChem runs the selected seed-11, epoch-20 B100 molecular model on a CPU. It returns 100 predictions in the frozen model order: 68 class-1 probabilities and 32 regression values on their recorded scales. Endpoint names, categories, class labels and display scales are in `velochem/presentation_catalog.json`; trained transforms and source notes are in `velochem/catalog.json`.
+VeloChem runs the selected seed-11, epoch-20 molecular model on a CPU. It returns 100 predictions in the frozen model order: 68 class-1 probabilities and 32 regression values on their recorded scales. Endpoint names, categories, class labels and display scales are in `velochem/presentation_catalog.json`; trained transforms and source notes are in `velochem/catalog.json`.
 
 ## Install
 
