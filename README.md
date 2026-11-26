@@ -7,7 +7,7 @@ VeloChem runs the selected seed-11, epoch-20 molecular model on a CPU. It return
 Python 3.11 or 3.12:
 
 ```sh
-python -m pip install velochem==1.0.0
+python -m pip install velochem==1.0.1
 ```
 
 ## Terminal
